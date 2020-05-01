@@ -15,7 +15,7 @@ const userRouter = require('./routes/api/users');
 //router for reviews
 const reviewRouter = require('./routes/api/reviews');
 //router for arenas
-const areanRouter = require('./routes/api/arenas');
+const arenaRouter = require('./routes/api/arenas');
 
 
 const app = express();
