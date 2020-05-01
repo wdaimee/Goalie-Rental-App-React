@@ -8,8 +8,6 @@ require('dotenv').config();
 require('./config/database');
 
 //api routers
-//router to display docs - remove?
-const docRouter = require('./routes/api/docs');
 //router for game 
 const gameRouter = require('./routes/api/games');
 //router for user
@@ -30,8 +28,6 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 //api routes
-//mount route for api docs - is this needed?
-app.use('/api/docs', docRouter);
 //mount route for game
 app.use('/api/games', gameRouter);
 //mount router for users
