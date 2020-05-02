@@ -33,7 +33,7 @@ app.use('/api/games', gameRouter);
 //mount router for users
 app.use('/api/users', userRouter);
 // mount route for user review
-app.use('/api/users', reviewRouter);
+app.use('/api/reviews', reviewRouter);
 //mount router for arenas
 app.use('/api/arenas', arenaRouter);
 

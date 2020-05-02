@@ -12,5 +12,7 @@ router.put('/:id', userCtrl.update);
 router.get('/:id', userCtrl.show);
 //delete a user
 router.delete('/:id', userCtrl.delete);
+//login a user
+router.post('/login', userCtrl.login);
 
 module.exports = router;
