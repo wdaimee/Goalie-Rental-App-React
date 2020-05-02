@@ -45,6 +45,10 @@ class SignUpForm extends Component {
         });
     }
 
+    handleChangeSelectBox = (value, state) => {
+        this.setState({[state]: value});
+    }
+
     handleSubmit = async (evt) => {
         evt.preventDefault();
         try {
@@ -116,14 +120,15 @@ class SignUpForm extends Component {
                     </div>
                     <div className="form-group">
                         <div className="col-sm-12">
-                            <Select options={isGoalie} name="goalie" onChange={this.handleChange} />
+                            <Select options={isGoalie} name="goalie" value={this.state.value} 
+                                    onChange={(value)=>this.handleChangeSelectBox(value, "goalie")} />
                         </div>
                     </div>
                     {extraSelectList}
                     <div className="form-group">
                         <div className="col-sm-12 text-center">
-                            <button ClassName="btn btn-default" default={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
-                            <Link to='/'>Cancel</Link>
+                            <button className="btn btn-success" default={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+                            <Link className="btn btn-danger" to='/'>Cancel</Link>
                         </div>
                     </div>
                 </form>
