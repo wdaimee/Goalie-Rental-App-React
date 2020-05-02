@@ -10,11 +10,11 @@ class LoginPage extends Component {
     };
 
     handleChange = (evt) => {
-        [e.target.name] = e.target.value;
+        [evt.target.name] = evt.target.value;
     }
 
     handleSubmit = async (evt) => {
-        e.preventDefault();
+        evt.preventDefault();
         try {
             await userService.login(this.state);
             this.props.handleSignupOrLogin();

@@ -36,11 +36,12 @@ class SignUpForm extends Component {
         passwordConf: ''
     };
 
+
     //handle any changes to form if text changes
     handleChange = (evt) => {
         this.props.updateMessage('');
         this.setState({
-            [e.target.name]: e.target.value
+            [evt.target.name]: evt.target.value
         });
     }
 
@@ -60,23 +61,25 @@ class SignUpForm extends Component {
                 this.state.age && this.state.goalie && this.state.password === this.state.passwordConf);
     }
 
-    if(goalie) {
-        extraSelectList = 
-        <>
-            <div className="form-group">
-                <div className="col-sm-12">
-                    <Select options={sportList} name="sport" onChange={this.handleChange} />
-                </div>
-            </div>
-            <div className="form-group">
-                <div className="col-sm-12">
-                    <Select options={skillLevelList} name="skill_level" onChange={this.handleChange} />
-                </div>
-            </div>
-        </>
-    } 
 
     render() {
+        let extraSelectList;
+
+        if(this.state.goalie === true) {
+            extraSelectList = 
+            <>
+                <div className="form-group">
+                    <div className="col-sm-12">
+                        <Select options={sportList} name="sport" onChange={this.handleChange} />
+                    </div>
+                </div>
+                <div className="form-group">
+                    <div className="col-sm-12">
+                        <Select options={skillLevelList} name="skill_level" onChange={this.handleChange} />
+                    </div>
+                </div>
+            </>
+            } 
         return (
             <div>
                 <header className="header-footer">Sign Up</header>

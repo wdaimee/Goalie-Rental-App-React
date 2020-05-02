@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import logo from '../../logo.svg';
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import SignUpPage from '../SignUpPage/SignUpPage';
+import LogInPage from '../LogInPage/LoginPage';
 
 class App extends Component {
   state = {
@@ -20,8 +22,18 @@ class App extends Component {
 
   render() {
     return (
-      <h1>Hello</h1>
-    )
+      <Switch>
+        <Route exact path="/" render={() => (
+          <h1>Hello</h1>
+        )} />
+        <Route exact path="/signup" render={({ history }) => (
+          <SignUpPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
+        )} />
+        <Route exact path="/login" render={({ history }) => (
+          <LogInPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
+        )} />
+      </Switch>
+    );
   }
 }
 
