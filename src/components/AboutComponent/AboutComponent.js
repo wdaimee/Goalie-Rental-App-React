@@ -20,6 +20,18 @@ export default function AboutComponent() {
                     </p>
                 </div>
                 <hr className="hr-about"/>
+                <div className="col-12">
+                   <p style={{fontSize: "30px"}}>How It Works</p>
+                </div>
+                <hr className="hr-about" />
+                <div className="col-12">
+                    <p className="lead" style={{fontSize: "30px"}}>
+                        You can signup and make a game request to rent a goalie, you choose sports from: Hockey, Soccer, and Lacroose.
+                        One of our goalies can choose to fill your game by requesting to fill the goalie in your game. You then have the option 
+                        of accepting or declining the goalie. If you decline, a new goalie can request to join.
+                    </p>
+                </div>
+                <hr className="hr-about"/>
            </div>
        </div> 
     )
