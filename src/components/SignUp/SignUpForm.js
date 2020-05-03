@@ -31,7 +31,7 @@ class SignUpForm extends Component {
         phone_num: '',
         age: '',
         goalie: false,
-        sport: null,
+        sport: [],
         skill_level: null,
         password: '',
         passwordConf: ''
@@ -49,6 +49,14 @@ class SignUpForm extends Component {
     //handle any changes to form select boxes
     handleChangeSelectBox = (value, state) => {
         this.setState({[state]: value});
+    }
+
+    //handle change for multiselect box
+    handleChangeMulti = (value) => {
+        this.setState({sport: value})
+        value.map(val => {
+            this.setState({ sport: [...this.state.sport, val.value]})
+        })
     }
 
     handleSubmit = async (evt) => {
@@ -77,13 +85,20 @@ class SignUpForm extends Component {
             <>
                 <div className="form-group">
                     <div className="col-sm-12">
-                        <Select options={sportList} name="sport" value={this.state.value} 
-                                onChange={({ value }) => this.handleChangeSelectBox(value, "sport")} />
+                        <Select closeMenuOnSelect={false} 
+                                isMulti options={sportList} 
+                                placeholder="Select your sports" 
+                                name="sport" 
+                                value={this.state.value} 
+                                onChange={(value) => this.handleChangeMulti(value)} />
                     </div>
                 </div>
                 <div className="form-group">
                     <div className="col-sm-12">
-                        <Select options={skillLevelList} name="skill_level" value={this.state.value} 
+                        <Select options={skillLevelList} 
+                                placeholder="What's your skill level?" 
+                                name="skill_level" 
+                                value={this.state.value} 
                                 onChange={({ value }) => this.handleChangeSelectBox(value, "skill_level")} />
                     </div>
                 </div>
@@ -93,7 +108,8 @@ class SignUpForm extends Component {
             <div className="signup-container">
                 <div className="signup-caption">
                     <header className="header-footer signup-header">Sign Up to Get Started!</header>
-                    <p>Sign up to find goalies to rent. Goalies, sign up to find games to play in your area.</p>
+                    <p>Sign up to find goalies to rent.</p>
+                    <p>Goalies, sign up to find games to play.</p>
                 </div>
                 <form className="form-horizontal" onSubmit={this.handleSubmit}>
                     <div className="form-group">
@@ -128,7 +144,10 @@ class SignUpForm extends Component {
                     </div>
                     <div className="form-group">
                         <div className="col-sm-12">
-                            <Select options={isGoalie} name="goalie" value={this.state.value} 
+                            <Select options={isGoalie} 
+                                    placeholder="Want to signup as a goalie?" 
+                                    name="goalie" 
+                                    value={this.state.value} 
                                     onChange={({ value }) => this.handleChangeSelectBox(value, "goalie")} />
                         </div>
                     </div>
