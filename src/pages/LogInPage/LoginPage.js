@@ -26,7 +26,7 @@ class LoginPage extends Component {
 
     render() {
         return (
-            <div className="LoginPage">
+            <div className="LoginPage" style={{height: "70vh"}}>
                 <header className="header-footer">Log In</header>
                 <form className="form-horizontal" onSubmit={this.handleSubmit} >
                     <div className="form-group">

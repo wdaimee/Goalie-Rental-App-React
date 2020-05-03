@@ -3,11 +3,12 @@ import './ConnectComponent.css';
 
 export default function ConnectComponent() {
     return (
-        <div className="container-fluid padding">
+        <div className="container-fluid padding connect">
             <div className="row text-center padding">
                 <div className="col-12">
-                    <h2>Come Check Us Out Below</h2>
+                    <h2 className="connect-caption">Come Check Us Out Below</h2>
                 </div>
+                <hr />
                 <div className="col-12 social padding">
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>

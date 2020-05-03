@@ -29,7 +29,6 @@ export default function CarouselComponent() {
             alt="Second slide"
             />
             <Carousel.Caption>
-                <h1 className="display-2"></h1>
                 <p>We've got goalies for soccer too!</p>
             </Carousel.Caption>
         </Carousel.Item>
@@ -40,31 +39,9 @@ export default function CarouselComponent() {
             alt="Third slide"
             />
             <Carousel.Caption>
-                <h1 className="display-2"></h1>
                 <p>You better believe we've got goalies for lacrosse!</p>
             </Carousel.Caption>
         </Carousel.Item>
     </Carousel>
-        // <div id="slides" className="carousel slide" data-ride="carousel">
-        //     <ul className="carousel-indicators">
-        //         <li data-target="#slides" data-slide-to="0" className="active"></li>
-        //         <li data-target="#slides" data-slide-to="1"></li>
-        //         <li data-target="#slides" data-slide-to="2"></li>
-        //     </ul>
-        //     <div className="carousel-inner">
-        //         <div className="carousel-item active">
-        //            <img src="hockey-goalie.jpg" />
-        //            <div className="carousel-caption">
-        //                <h1 className="display-2">Rent a Goalie!</h1>
-        //            </div>
-        //         </div>
-        //         <div className="carousel-item">
-        //            <img src="soccer-goalie.jpg" />
-        //         </div>
-        //         <div className="carousel-item">
-        //            <img src="lacrosse-goalie.jpg" />
-        //         </div> 
-        //     </div>
-        // </div>
     );
 }

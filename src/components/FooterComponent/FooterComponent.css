@@ -1,0 +1,19 @@
+footer {
+    background-color: black;
+    color: white;
+    padding-top: 1.5rem;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+hr.light, hr.copy {
+    border-top: 1px solid white;
+    width: 60%;
+    margin-top: .8rem;
+    margin-bottom: 1rem;
+}
+
+hr.copy {
+    width: 90%;
+}
