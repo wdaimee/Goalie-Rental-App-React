@@ -1,0 +1,19 @@
+.fab {
+    font-family: FontAwesome !important;
+    font-size: 40px;
+    padding: 0 15px;
+    color: black;
+    font-style: normal;
+}
+
+.fab:before {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.fab:hover {
+    color: blue;
+}
+
+
+
