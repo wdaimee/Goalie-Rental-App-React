@@ -19,7 +19,7 @@ export default function CarouselComponent() {
             />
             <Carousel.Caption>
                 <h1 className="display-2">Need a Goalie?</h1>
-                <p>We have goalies for hockey!</p>
+                <p>We've got goalies for hockey!</p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>

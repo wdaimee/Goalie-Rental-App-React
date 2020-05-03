@@ -6,6 +6,7 @@ import userService from '../../utils/userService';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LoginPage';
 import LandingPage from '../LandingPage/LandingPage';
+import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
 
 class App extends Component {
   state = {
@@ -23,17 +24,20 @@ class App extends Component {
 
   render() {
     return (
-      <Switch>
-        <Route exact path="/" render={() => (
-          <LandingPage />
-        )} />
-        <Route exact path="/signup" render={({ history }) => (
-          <SignUpPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
-        )} />
-        <Route exact path="/login" render={({ history }) => (
-          <LogInPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
-        )} />
-      </Switch>
+      <>
+        <HeaderComponent />
+        <Switch>
+          <Route exact path="/" render={() => (
+            <LandingPage />
+          )} />
+          <Route exact path="/signup" render={({ history }) => (
+            <SignUpPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
+          )} />
+          <Route exact path="/login" render={({ history }) => (
+            <LogInPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
+          )} />
+        </Switch>
+      </>
     );
   }
 }
