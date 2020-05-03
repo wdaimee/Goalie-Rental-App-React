@@ -25,11 +25,11 @@ const userSchema = new Schema({
     },
     sport: {
         type: [String],
-        enum: ['hockey', 'lacrosse', 'soccer']
+        enum: [null, 'hockey', 'lacrosse', 'soccer']
     },
     skill_level: {
         type: String,
-        enum: ["A", "B", "C", "D", "Beginner"]
+        enum: [null, "A", "B", "C", "D", "Beginner"]
     },
     admin: {
         type: Boolean,

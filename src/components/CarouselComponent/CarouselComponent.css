@@ -1,0 +1,36 @@
+.carousel {
+    height: 500px;
+}
+
+.carousel-inner > .item {
+    height: 500px;
+}
+
+img {
+    height: 500px;
+
+}
+
+.display-2 {
+    color: orange;
+}
+
+.carousel-caption {
+    font-size: 50px;
+}
+
+.carousel-item {
+    Position:relative;
+}
+
+.carousel-item:after {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(0,0,0,0.5);
+}
+

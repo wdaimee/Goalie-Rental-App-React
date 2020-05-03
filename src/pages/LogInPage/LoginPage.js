@@ -10,7 +10,7 @@ class LoginPage extends Component {
     };
 
     handleChange = (evt) => {
-        [evt.target.name] = evt.target.value;
+        this.setState({[evt.target.name]: evt.target.value});
     }
 
     handleSubmit = async (evt) => {
@@ -31,7 +31,7 @@ class LoginPage extends Component {
                 <form className="form-horizontal" onSubmit={this.handleSubmit} >
                     <div className="form-group">
                         <div className="col-sm-12">
-                            <input type="email" className="form-control" placeholder="Email" value={this.state.value} name="email" onChange={this.handleChange} />
+                            <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="form-group">

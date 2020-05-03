@@ -5,6 +5,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LoginPage';
+import LandingPage from '../LandingPage/LandingPage';
 
 class App extends Component {
   state = {
@@ -24,7 +25,7 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path="/" render={() => (
-          <h1>Hello</h1>
+          <LandingPage />
         )} />
         <Route exact path="/signup" render={({ history }) => (
           <SignUpPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />

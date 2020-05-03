@@ -30,8 +30,8 @@ class SignUpForm extends Component {
         phone_num: '',
         age: '',
         goalie: false,
-        sport: '',
-        skill_level: '',
+        sport: null,
+        skill_level: null,
         password: '',
         passwordConf: ''
     };
@@ -45,6 +45,7 @@ class SignUpForm extends Component {
         });
     }
 
+    //handle any changes to form select boxes
     handleChangeSelectBox = (value, state) => {
         this.setState({[state]: value});
     }
@@ -69,17 +70,20 @@ class SignUpForm extends Component {
     render() {
         let extraSelectList;
 
-        if(this.state.goalie === true) {
+        //if the user selects they are a goalie, fill out the sport they play and their skill level
+        if(this.state.goalie) {
             extraSelectList = 
             <>
                 <div className="form-group">
                     <div className="col-sm-12">
-                        <Select options={sportList} name="sport" onChange={this.handleChange} />
+                        <Select options={sportList} name="sport" value={this.state.value} 
+                                onChange={({ value }) => this.handleChangeSelectBox(value, "sport")} />
                     </div>
                 </div>
                 <div className="form-group">
                     <div className="col-sm-12">
-                        <Select options={skillLevelList} name="skill_level" onChange={this.handleChange} />
+                        <Select options={skillLevelList} name="skill_level" value={this.state.value} 
+                                onChange={({ value }) => this.handleChangeSelectBox(value, "skill_level")} />
                     </div>
                 </div>
             </>
@@ -100,12 +104,12 @@ class SignUpForm extends Component {
                     </div>
                     <div className="form-group">
                         <div className="col-sm-12">
-                            <input type="text" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
+                            <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="col-sm-12">
-                            <input type="text" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+                            <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="form-group">
@@ -121,7 +125,7 @@ class SignUpForm extends Component {
                     <div className="form-group">
                         <div className="col-sm-12">
                             <Select options={isGoalie} name="goalie" value={this.state.value} 
-                                    onChange={(value)=>this.handleChangeSelectBox(value, "goalie")} />
+                                    onChange={({ value }) => this.handleChangeSelectBox(value, "goalie")} />
                         </div>
                     </div>
                     {extraSelectList}
