@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
 import Select from 'react-select';
+import './SignUpForm.css';
 
 const isGoalie = [
     {value: true, label: 'Yes'},
@@ -89,8 +90,11 @@ class SignUpForm extends Component {
             </>
             } 
         return (
-            <div>
-                <header className="header-footer">Sign Up</header>
+            <div className="signup-container">
+                <div className="signup-caption">
+                    <header className="header-footer signup-header">Sign Up to Get Started!</header>
+                    <p>Sign up to find goalies to rent. Goalies, sign up to find games to play in your area.</p>
+                </div>
                 <form className="form-horizontal" onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <div className="col-sm-12">
