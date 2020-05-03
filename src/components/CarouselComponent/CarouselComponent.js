@@ -18,8 +18,8 @@ export default function CarouselComponent() {
                 alt="First slide"
             />
             <Carousel.Caption>
-                <h1 className="display-2">Need a Goalie?</h1>
-                <p>We've got goalies for hockey!</p>
+                <h1 className="display-2">gUber</h1>
+                <p>We've got you covered for your rental needs!</p>
             </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
