@@ -5,7 +5,7 @@ export default function HeaderComponent() {
     return (
         <div className={style.header}>
             <div className={style.displayName}>
-                gUber
+                gÜber
             </div>
             <div className={style.displayMoto}>
                 The Goalie Rental Company

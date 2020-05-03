@@ -8,7 +8,7 @@ export default function FooterComponent() {
                 <div className="row text-center">
                     <div className="col-md-4">
                         <hr className="light" />
-                        <p style={{fontSize: '30px'}}>gUber</p>
+                        <p style={{fontSize: '30px'}}>gÜber</p>
                         <p>The Goalie Rental Company</p>
                         <hr className="light" />
                         <p>555-555-5555</p>
@@ -34,7 +34,7 @@ export default function FooterComponent() {
                     </div>
                     <div className="col-12">
                         <hr className="copy" />
-                        <h5>&copy; gUber.com</h5>
+                        <h5>&copy; gÜber.com</h5>
                     </div>
                 </div>
             </div>

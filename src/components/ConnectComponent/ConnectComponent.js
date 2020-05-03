@@ -8,12 +8,12 @@ export default function ConnectComponent() {
                 <div className="col-12">
                     <h2 className="connect-caption">Come Check Us Out Below</h2>
                 </div>
-                <hr />
+                <hr className="connect-hr"/>
                 <div className="col-12 social padding">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i className="fab fa-facebook"></i></a>
+                    <a href="#"><i className="fab fa-twitter"></i></a>
+                    <a href="#"><i className="fab fa-instagram"></i></a>
+                    <a href="#"><i className="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>

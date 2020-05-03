@@ -1,0 +1,21 @@
+.about-sec {
+    padding-top: 3em;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lead {
+    padding: 40px 0;
+    margin: 0 auto;
+    text-align: center;
+    width: 60%;
+}
+
+.hr-about {
+ 
+    border-top: 1px solid black;
+    width: 50%;
+}

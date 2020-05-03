@@ -159,6 +159,10 @@ class SignUpForm extends Component {
                         </div>
                     </div>
                 </form>
+                <div className="link-login">
+                    <p>Already have an account? Log in below.</p>
+                    <Link className="btn btn-secondary" to='/login'>Log In</Link>
+                </div>
             </div>
         );
     }

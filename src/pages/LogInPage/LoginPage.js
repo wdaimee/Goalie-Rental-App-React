@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import userService from '../../utils/userService';
+import './LoginPage.css';
 
 class LoginPage extends Component {
 
@@ -26,8 +27,11 @@ class LoginPage extends Component {
 
     render() {
         return (
-            <div className="LoginPage" style={{height: "70vh"}}>
-                <header className="header-footer">Log In</header>
+            <div className="login-page" style={{height: "70vh"}}>
+                <div className="login-caption">
+                    <header className="header-footer login-header">gÜber</header>
+                    <p>Log In to Your Account</p>
+                </div>
                 <form className="form-horizontal" onSubmit={this.handleSubmit} >
                     <div className="form-group">
                         <div className="col-sm-12">
@@ -41,11 +45,15 @@ class LoginPage extends Component {
                     </div>
                     <div className="form-group">
                         <div className="col-sm-12 text-center">
-                            <button className="btn btn-default">Log In</button>&nbsp;&nbsp;&nbsp;
-                            <Link to='/'>Cancel</Link>
+                            <button className="btn btn-success">Log In</button>&nbsp;&nbsp;&nbsp;
+                            <Link className="btn btn-danger" to='/'>Cancel</Link>
                         </div>
                     </div>
                 </form>
+                <div className="link-signup">
+                        <p>Don't have an account? Sign up below.</p>
+                        <Link className="btn btn-secondary" to='/signup'>Sign Up</Link>
+                </div>
             </div>
         );
     }

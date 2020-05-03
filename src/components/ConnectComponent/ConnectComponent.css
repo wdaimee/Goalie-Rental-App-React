@@ -6,7 +6,7 @@
 }
 
 .connect-caption {
-    margin-bottom: 2em;
+    margin-bottom: 0.5em;
 }
 
 .fab {
@@ -42,6 +42,10 @@
     color: #BB0000;
 }
 
+.connect-hr {
+    border-top: 1px solid black;
+    width: 50%;
+}
 
 
 
