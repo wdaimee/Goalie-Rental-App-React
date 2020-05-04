@@ -5,8 +5,8 @@ import userService from '../../utils/userService';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LoginPage';
 import LandingPage from '../LandingPage/LandingPage';
-import HeaderComponent from '../../components/HeaderComponent/HeaderComponent';
 import FooterComponent from '../../components/FooterComponent/FooterComponent';
+import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
 
 class App extends Component {
   state = {
@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <HeaderComponent />
+        <NavbarComponent />
         <Switch>
           <Route exact path="/" render={() => (
             <LandingPage />
