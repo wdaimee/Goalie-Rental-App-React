@@ -32,7 +32,7 @@ function login(creds) {
 }
 
 function logout() {
-    tokenService.getUserFromToken();
+    tokenService.removeToken();
 }
 
 export default {

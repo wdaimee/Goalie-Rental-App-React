@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     return (
       <>
-        <NavbarComponent />
+        <NavbarComponent user={this.state.user} handleLogout={this.handleLogout} />
         <Switch>
           <Route exact path="/" render={() => (
             <LandingPage />
