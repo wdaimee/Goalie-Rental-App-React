@@ -1,0 +1,25 @@
+.create-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-caption {
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.create-caption p {
+    font-size: 25px;
+    margin: 0.5em;
+}
+
+.create-header {
+    font-size: 50px;
+}
+
+.create-container .form-horizontal {
+    width: 30em;
+}

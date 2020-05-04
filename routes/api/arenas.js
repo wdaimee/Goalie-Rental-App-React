@@ -8,6 +8,9 @@ router.get('/', arenaCtrl.index);
 //create an arena
 router.post('/', arenaCtrl.create);
 
+//get a list of arenas by city
+router.post('/city', arenaCtrl.areansByCity);
+
 //get single arena
 router.get('/:id', arenaCtrl.show);
 

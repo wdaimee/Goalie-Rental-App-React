@@ -7,6 +7,7 @@ import LogInPage from '../LogInPage/LoginPage';
 import LandingPage from '../LandingPage/LandingPage';
 import FooterComponent from '../../components/FooterComponent/FooterComponent';
 import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
+import CreateRequestPage from '../CreateRequest/CreateRequestPage';
 
 class App extends Component {
   state = {
@@ -35,6 +36,9 @@ class App extends Component {
           )} />
           <Route exact path="/login" render={({ history }) => (
             <LogInPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
+          )} />
+          <Route exact path="/create" render={({ history }) => (
+            <CreateRequestPage user={this.state.user} history={history}/>
           )} />
         </Switch>
         <FooterComponent />

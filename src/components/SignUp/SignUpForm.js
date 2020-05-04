@@ -32,7 +32,7 @@ class SignUpForm extends Component {
         age: '',
         goalie: false,
         sport: [],
-        skill_level: null,
+        skill_level: '',
         password: '',
         passwordConf: ''
     };
@@ -88,8 +88,7 @@ class SignUpForm extends Component {
                         <Select closeMenuOnSelect={false} 
                                 isMulti options={sportList} 
                                 placeholder="Select your sports" 
-                                name="sport" 
-                                value={this.state.value} 
+                                name="sport"
                                 onChange={(value) => this.handleChangeMulti(value)} />
                     </div>
                 </div>
@@ -98,7 +97,6 @@ class SignUpForm extends Component {
                         <Select options={skillLevelList} 
                                 placeholder="What's your skill level?" 
                                 name="skill_level" 
-                                value={this.state.value} 
                                 onChange={({ value }) => this.handleChangeSelectBox(value, "skill_level")} />
                     </div>
                 </div>
@@ -147,7 +145,6 @@ class SignUpForm extends Component {
                             <Select options={isGoalie} 
                                     placeholder="Want to signup as a goalie?" 
                                     name="goalie" 
-                                    value={this.state.value} 
                                     onChange={({ value }) => this.handleChangeSelectBox(value, "goalie")} />
                         </div>
                     </div>

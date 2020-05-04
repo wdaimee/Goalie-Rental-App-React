@@ -5,7 +5,8 @@ module.exports = {
     show,
     create,
     update,
-    delete: delete_arena
+    delete: delete_arena,
+    areansByCity
 };
 
 //send all arenas as json response
@@ -29,6 +30,18 @@ function show(req, res) {
         res.json(arena);
     });
 };
+
+//get a list of areans by city
+function areansByCity(req, res) {
+    console.log(req.body)
+    Arena.find({city: req.body.city}, (err, arenas) => {
+        if (err) {
+            console.log('error: ' + err);
+            res.sendStatus(500);
+        }
+        res.json(arenas);
+    });
+}
 
 // create a new arena
 function create(req, res) {
