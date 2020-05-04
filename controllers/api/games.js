@@ -225,7 +225,7 @@ function create(req, res) {
             });
         });
     });
-    new_game.requestor = req.user;
+    new_game.requestor = req.body.requestor;
     console.log(new_game);
 };
 
