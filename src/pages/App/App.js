@@ -8,7 +8,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import FooterComponent from '../../components/FooterComponent/FooterComponent';
 import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
 import CreateRequestPage from '../CreateRequest/CreateRequestPage';
-import HomePage from '../HomePage/HomePage';
+import YourRequestPage from '../YourRequestPage/YourRequestPage';
 
 class App extends Component {
   state = {
@@ -41,8 +41,8 @@ class App extends Component {
           <Route exact path="/create" render={({ history }) => (
             <CreateRequestPage user={this.state.user} history={history}/>
           )} />
-          <Route exact path="/home" render={() => (
-            <HomePage user={this.state.user} />
+          <Route exact path="/requests" render={() => (
+            <YourRequestPage user={this.state.user} />
           )} />
         </Switch>
         <FooterComponent />

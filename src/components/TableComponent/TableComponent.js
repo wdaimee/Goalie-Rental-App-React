@@ -1,5 +1,6 @@
 import React from 'react';
 import TableEntryOpenComponent from '../TableEntryOpenComponent/TableEntryOpenComponent';
+import TableEntryComponent from '../TableEntryComponent/TableEntryComponent';
 
 
 export default function TableComponent(props) {
@@ -7,6 +8,10 @@ export default function TableComponent(props) {
 
     if (props.request_status === 'open') {
         table_data = <TableEntryOpenComponent request_list={props.request_list}/>
+    }
+
+    else {
+        table_data = <TableEntryComponent request_list={props.request_list} request_status={props.request_status}/>
     }
 
     return (
