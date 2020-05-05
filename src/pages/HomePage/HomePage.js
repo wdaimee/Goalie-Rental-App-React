@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
 import WelcomeComponent from '../../components/WelcomeComponent/WelcomeComponent';
+import WelcomeInfoComponent from '../../components/WelcomeInfoComponent/WelcomeInfoComponent';
+import TableComponent from '../../components/TableComponent/TableComponent';
 import * as gameService from '../../utils/gameService';
 
 class HomePage extends Component {
     state = {
         request_status: 'open',
         user: this.props.user._id,
-        active_requests: []
+        request_list: []
     }
 
     async componentDidMount() {
         const requests = await gameService
                         .getRequests(this.state.user, this.state.request_status);
-        console.log(requests)
-        this.setState({active_requests: [...this.state.active_requests, requests]})
+        this.setState({request_list: [...this.state.request_list, requests]});
+        console.log(this.state.request_list[0])
     }
 
     render() {
         return(
-            <WelcomeComponent user={this.props.user}/>
+            <>
+                <WelcomeComponent user={this.props.user}/>
+                <WelcomeInfoComponent />
+                <TableComponent request_list={this.state.request_list}/>
+            </>    
         )
     }
 }
