@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import WelcomeComponent from '../../components/WelcomeComponent/WelcomeComponent';
 import WelcomeInfoComponent from '../../components/HomeInfoComponent/HomeInforComponent';
 import TableComponent from '../../components/TableComponent/TableComponent';
+import ViewsDropDownComponent from '../../components/ViewsDropDownComponent/ViewsDropDownComponent';
 import * as gameService from '../../utils/gameService';
 
 class HomePage extends Component {
     state = {
-        request_status: 'open',
+        request_status: "open",
         user: this.props.user._id,
         request_list: []
     }
@@ -19,11 +20,16 @@ class HomePage extends Component {
         });
     }
 
+    handleChangeSelectBox = (value, state) => {
+        this.setState({[state]: value});
+    }
+
     render() {
         return(
             <>
                 <WelcomeComponent user={this.props.user}/>
                 <WelcomeInfoComponent request_status={this.state.request_status}/>
+                <ViewsDropDownComponent request_status={this.state.request_status} handleChangeSelectBox={this.handleChangeSelectBox} />
                 <TableComponent request_list={this.state.request_list} request_status={this.state.request_status}/>
             </>    
         )

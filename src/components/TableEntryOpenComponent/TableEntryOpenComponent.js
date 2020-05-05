@@ -31,7 +31,7 @@ export default function TableEntryOpenComponent(props) {
                                     <th scope="row">{idx + 1}</th>
                                     <td>{item.requestor.name}</td>
                                     <td>{item.requestor.email}</td>
-                                    <td>{item.sport}</td>
+                                    <td>{item.sport.toUpperCase()}</td>
                                     <td>{item.skill_level}</td>
                                     <td>{item.request_date}</td>
                                     <td>{item.request_time}</td>
@@ -40,9 +40,9 @@ export default function TableEntryOpenComponent(props) {
                                     <td>{item.arena.address}</td>
                                     <td>{item.city}</td>
                                     <td>{item.description}</td>
-                                    <td>{item.status}</td>
-                                    <td><button>EDIT</button></td>
-                                    <td><button>X</button></td>
+                                    <td>{item.status.toUpperCase()}</td>
+                                    <td><button className="btn btn-secondary">EDIT</button></td>
+                                    <td><button className="btn btn-danger" style={{textAlign: "center"}}>X</button></td>
                                 </tr>
                             )
                         })}
