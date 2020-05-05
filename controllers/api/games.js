@@ -17,8 +17,8 @@ module.exports = {
 
 //send a list of games for a user by following sort: all, open, pending, confirmed - works
 function requestor(req, res) {
-    if(req.query.status === 'all') {
-        Game.find({requestor: req.user})
+    if(req.body.status === 'all') {
+        Game.find({requestor: req.body.user})
         .populate('requestor')
         .populate('arena')
         .populate('goalie')
@@ -31,7 +31,7 @@ function requestor(req, res) {
             res.json(games);
         });
     } else {
-        Game.find({requestor: req.user, status: req.query.status})
+        Game.find({requestor: req.body.user, status: req.body.status})
         .populate('requestor')
         .populate('arena')
         .populate('goalie')

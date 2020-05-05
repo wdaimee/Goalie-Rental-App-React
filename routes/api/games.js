@@ -3,7 +3,7 @@ const router = express.Router();
 const gamesCtrl = require('../../controllers/api/games');
 
 //get a list of requestors history - working
-router.get('/request', gamesCtrl.requestor);
+router.post('/request', gamesCtrl.requestor);
 
 //get a list of goalie history - working
 router.get('/goalie', gamesCtrl.goalie);

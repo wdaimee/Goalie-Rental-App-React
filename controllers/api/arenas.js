@@ -16,7 +16,7 @@ function index(req, res) {
             console.log("index error: " + err);
             res.sendStatus(500);
         }
-        res.json(arenas);server.js
+        res.json(arenas);
     });
 };
 
@@ -33,7 +33,6 @@ function show(req, res) {
 
 //get a list of areans by city
 function areansByCity(req, res) {
-    console.log(req.body)
     Arena.find({city: req.body.city}, (err, arenas) => {
         if (err) {
             console.log('error: ' + err);
