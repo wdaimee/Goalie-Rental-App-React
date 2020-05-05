@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import WelcomeComponent from '../../components/WelcomeComponent/WelcomeComponent';
 import * as gameService from '../../utils/gameService';
+import GamesInfoComponent from '../../components/GamesInfoComponent/GamesInfoComponent';
+import TableGamesComponent from '../../components/TableGamesComponent/TableGamesComponent';
 
 class FindGamesPage extends Component {
     state = {
@@ -18,7 +20,9 @@ class FindGamesPage extends Component {
     render() {
         return(
             <>
-                <WelcomeComponent user={this.props.user}/>
+                <WelcomeComponent user={this.props.user} />
+                <GamesInfoComponent />
+                <TableGamesComponent request_list={this.state.request_list} />
             </>
         )
     }

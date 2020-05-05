@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function WelcomeInfoComponent(props) {
+export default function HomeInfoComponent(props) {
     let info;
     if (props.request_status === 'open') {
         info =  <div className="jumbotron jumbotron-fluid" style={{padding: "1em 2em", marginBottom: 0}}>
