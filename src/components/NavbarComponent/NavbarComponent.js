@@ -16,7 +16,7 @@ export default function NavbarComponent(props) {
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
                 {nav_goalie}
-                <Nav.Link href="home">Your Requests</Nav.Link>
+                <Nav.Link href="requests">Your Requests</Nav.Link>
                 <Nav.Link href="create">Make Request</Nav.Link>
                 <Nav.Link href="">Profile</Nav.Link>
                 <Nav.Link href="/" onClick={props.handleLogout}>Log Out</Nav.Link>
