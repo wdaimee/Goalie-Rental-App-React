@@ -9,6 +9,7 @@ import FooterComponent from '../../components/FooterComponent/FooterComponent';
 import NavbarComponent from '../../components/NavbarComponent/NavbarComponent';
 import CreateRequestPage from '../CreateRequest/CreateRequestPage';
 import YourRequestPage from '../YourRequestPage/YourRequestPage';
+import FindGamesPage from '../FindGamesPage/FindGamesPage';
 
 class App extends Component {
   state = {
@@ -43,6 +44,9 @@ class App extends Component {
           )} />
           <Route exact path="/requests" render={() => (
             <YourRequestPage user={this.state.user} />
+          )} />
+          <Route exact path="/games" render={() => (
+            <FindGamesPage user={this.state.user} />
           )} />
         </Switch>
         <FooterComponent />

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import WelcomeComponent from '../../components/WelcomeComponent/WelcomeComponent';
-import WelcomeInfoComponent from '../../components/HomeInfoComponent/HomeInforComponent';
+import HomeInfoComponent from '../../components/HomeInfoComponent/HomeInforComponent';
 import TableComponent from '../../components/TableComponent/TableComponent';
 import ViewsDropDownComponent from '../../components/ViewsDropDownComponent/ViewsDropDownComponent';
 import * as gameService from '../../utils/gameService';
 
-class HomePage extends Component {
+class YourRequestPage extends Component {
     state = {
         request_status: "open",
         user: this.props.user._id,
@@ -28,7 +28,7 @@ class HomePage extends Component {
         return(
             <>
                 <WelcomeComponent user={this.props.user}/>
-                <WelcomeInfoComponent request_status={this.state.request_status}/>
+                <HomeInfoComponent request_status={this.state.request_status}/>
                 <ViewsDropDownComponent request_status={this.state.request_status} handleChangeSelectBox={this.handleChangeSelectBox} />
                 <TableComponent request_list={this.state.request_list} request_status={this.state.request_status}/>
             </>    
@@ -36,4 +36,4 @@ class HomePage extends Component {
     }
 }
 
-export default HomePage;
+export default YourRequestPage;
