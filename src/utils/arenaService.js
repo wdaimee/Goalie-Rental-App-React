@@ -9,3 +9,4 @@ export function getArenasByCity(city) {
     }).then(res => res.json());
 }
 
+

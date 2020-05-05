@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import WelcomeComponent from '../../components/WelcomeComponent/WelcomeComponent';
-import WelcomeInfoComponent from '../../components/WelcomeInfoComponent/WelcomeInfoComponent';
+import WelcomeInfoComponent from '../../components/HomeInfoComponent/HomeInforComponent';
 import TableComponent from '../../components/TableComponent/TableComponent';
 import * as gameService from '../../utils/gameService';
 
@@ -12,18 +12,19 @@ class HomePage extends Component {
     }
 
     async componentDidMount() {
-        const requests = await gameService
+        let requests = await gameService
                         .getRequests(this.state.user, this.state.request_status);
-        this.setState({request_list: [...this.state.request_list, requests]});
-        console.log(this.state.request_list[0])
+        requests.map(request => {
+            this.setState({request_list: [...this.state.request_list, request]})
+        });
     }
 
     render() {
         return(
             <>
                 <WelcomeComponent user={this.props.user}/>
-                <WelcomeInfoComponent />
-                <TableComponent request_list={this.state.request_list}/>
+                <WelcomeInfoComponent request_status={this.state.request_status}/>
+                <TableComponent request_list={this.state.request_list} request_status={this.state.request_status}/>
             </>    
         )
     }
