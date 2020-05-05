@@ -26,3 +26,13 @@ export function getOpen() {
     }).then(res => res.json());
 }
 
+//function for goalie to join a game
+export function joinGame(gameId, user) {
+    console.log(user)
+    return fetch(BASE_URL + `${gameId}` + '/add_goalie', {
+        method: 'PUT',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({'user': user, 'game': gameId})
+    }).then(res => res.json());
+}
+

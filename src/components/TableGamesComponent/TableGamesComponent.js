@@ -4,7 +4,7 @@ import TableEntryGamesComponent from '../../components/TableEntryGamesComponent/
 export default function TableComponentGames(props) {
     return (
         <div className="table-responsive" style={{height: "60vh", marginTop: "1em"}}>
-            <TableEntryGamesComponent request_list={props.request_list} />
+            <TableEntryGamesComponent user={props.user} request_list={props.request_list} handleJoinClick={props.handleJoinClick} />
         </div>
     )
 }

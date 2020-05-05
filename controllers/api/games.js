@@ -95,21 +95,21 @@ function all_open(req, res) {
 
 //function to add a goalie to the game - Works!
 function add_goalie(req, res) {
-    if (req.user.goalie === false ) {
+    if (req.body.user.goalie === false ) {
         return res.json({response: 'You\'re not a goalie'});
     }
-    Game.findById(req.params.id, function(err, game) {
+    Game.findById(req.body.game, function(err, game) {
         if (err) {
             console.log("error: " + err);
             res.sendStatus(500);
         }
-        if (req.user.sport.includes(game.sport) === false) {
+        if (req.body.user.sport.includes(game.sport) === false) {
             return res.json({response: 'You don\'t play this sport'});
         }
-        if (req.user.skill_level !== game.skill_level) {
+        if (req.body.user.skill_level !== game.skill_level) {
             return res.json({response: 'You are not at the same skill level that this game requires'});
         }
-        game.goalie = req.user;
+        game.goalie = req.body.user;
         game.status = 'pending';
         game.save((err, game) => {
             if (err) {

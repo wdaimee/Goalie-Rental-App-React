@@ -38,7 +38,7 @@ export default function TableEntryGamesComponent(props) {
                                     <td>{item.arena.address}</td>
                                     <td>{item.city}</td>
                                     <td>{item.description}</td>
-                                    <td><button className="btn btn-success">JOIN</button></td>
+                                    <td><button className="btn btn-success" onClick={() => props.handleJoinClick(item._id, props.user)}>JOIN</button></td>
                                 </tr>
                             )
                         })}

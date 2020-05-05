@@ -17,12 +17,27 @@ class FindGamesPage extends Component {
         });
     }
 
+    renderOpenList = async () => {
+        let requests = await gameService.getOpen();
+        requests.map(request => {
+            this.setState({request_list: [...this.state.request_list, request]})
+        })
+    }
+
+    handleJoinClick = async (gameId, user) => {
+        await gameService.joinGame(gameId, user).then( _ => 
+            this.setState({request_list: []}, () => {
+                this.renderOpenList().catch(e => {});
+            })
+         )
+    }
+
     render() {
         return(
             <>
                 <WelcomeComponent user={this.props.user} />
                 <GamesInfoComponent />
-                <TableGamesComponent request_list={this.state.request_list} />
+                <TableGamesComponent user={this.props.user} request_list={this.state.request_list} handleJoinClick={this.handleJoinClick} />
             </>
         )
     }
