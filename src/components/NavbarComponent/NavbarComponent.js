@@ -10,7 +10,7 @@ export default function NavbarComponent(props) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
-                <Nav.Link href="">Home</Nav.Link>
+                <Nav.Link href="home">Home</Nav.Link>
                 <Nav.Link href="create">Make Request</Nav.Link>
                 <Nav.Link href="">Profile</Nav.Link>
                 <Nav.Link href="/" onClick={props.handleLogout}>Log Out</Nav.Link>
