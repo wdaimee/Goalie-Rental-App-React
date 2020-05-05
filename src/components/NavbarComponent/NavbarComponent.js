@@ -6,7 +6,7 @@ export default function NavbarComponent(props) {
    
     let nav_goalie;
     if (props.user) {
-        nav_goalie = props.user.goalie ? <Nav.Link href="">Find Games</Nav.Link> : null;
+        nav_goalie = props.user.goalie ? <Nav.Link href="games">Find Games</Nav.Link> : null;
     }
 
     let nav = props.user ?
