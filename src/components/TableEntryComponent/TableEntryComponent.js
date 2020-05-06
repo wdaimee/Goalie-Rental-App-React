@@ -53,7 +53,7 @@ export default function TableEntryComponent(props) {
                                     <td>{item.city}</td>
                                     <td>{item.description}</td>
                                     <td>{item.status.toUpperCase()}</td>
-                                    {/* <td>{item.goalie.name}</td> */}
+                                    {item.goalie ? <td>{item.goalie.name}</td> : <td>No Goalie</td>}
                                     <td><button className="btn btn-secondary">EDIT</button></td>
                                     <td><button className="btn btn-danger" style={{textAlign: "center"}}>X</button></td>
                                 </tr>

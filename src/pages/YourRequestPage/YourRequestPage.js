@@ -20,8 +20,20 @@ class YourRequestPage extends Component {
         });
     }
 
+    getRequests= async () => {
+        let requests = await gameService
+                        .getRequests(this.state.user, this.state.request_status);
+        requests.map(request =>  {
+            this.setState({request_list: [...this.state.request_list, request]})
+        })
+    }
+
     handleChangeSelectBox = (value, state) => {
-        this.setState({[state]: value});
+        this.setState({[state]: value}, () => {
+            this.setState({request_list: []}, () => {
+                this.getRequests().catch(e => {});
+            });
+        });
     }
 
     render() {
