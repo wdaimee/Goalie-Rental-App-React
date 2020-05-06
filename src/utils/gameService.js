@@ -49,3 +49,11 @@ export function confirmGame(gameId) {
         headers: {'content-type': 'application/json'}
     }).then(res => res.json());
 }
+
+//function to kick a goalie from a pending game
+export function kickGame(gameId) {
+    return fetch(BASE_URL + `${gameId}` + '/kick', {
+        method: 'PUT',
+        headers: {'content-type': 'application/json'}
+    }).then(res => res.json());
+}

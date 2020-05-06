@@ -12,7 +12,8 @@ module.exports = {
     all_open,
     show,
     update,
-    delete: delete_game
+    delete: delete_game,
+    kick_goalie
 };
 
 //send a list of games for a user by following sort: all, open, pending, confirmed - works
@@ -131,7 +132,7 @@ function add_goalie(req, res) {
     });
 };
 
-//Works!
+//function for user to confirm a goalie for their game, change status from pending to confirmed
 function confirm_game(req, res) {
     Game.findById(req.params.id, function(err, game) {
         if (err) {
@@ -273,6 +274,35 @@ function delete_game(req, res) {
                 res.sendStatus(500);
             }
             res.json(game);
+        });
+    });
+};
+
+//function to kick a goalie from a game and change status from pending to open
+function kick_goalie(req, res) {
+    Game.findById(req.params.id, function(err, game) {
+        if (err) {
+            console.log('err:' + err);
+            res.sendStatus(500);
+        }
+        game.goalie = undefined;
+        game.status = 'open';
+        game.save((err, game) => {
+            if (err) {
+                console.log('err:' + err);
+                res.sendStatus(500);
+            }
+            Game.findOne(game)
+            .populate('arena')
+            .populate('requestor')
+            .populate('goalie')
+            .exec((err, game) => {
+                if (err) {
+                    console.log("error: " + err);
+                    res.sendStatus(500);
+                }
+                res.json(game);
+            });
         });
     });
 };

@@ -16,7 +16,8 @@ export default function TableComponent(props) {
                                           request_list={props.request_list}
                                           request_status={props.request_status}
                                           handleConfirmClick={props.handleConfirmClick}
-                                          handleDeleteClick={props.handleDeleteClick}/>
+                                          handleDeleteClick={props.handleDeleteClick}
+                                          handleKickClick={props.handleKickClick} />
     }
 
     return (

@@ -66,7 +66,8 @@ export default function TableEntryComponent(props) {
                                                     onClick={() => props.handleConfirmClick(item._id)}>CONFIRM</button></td> : null
                                     }
                                     {item.status === 'pending' ?
-                                        <td><button className="btn btn-danger">KICK</button></td> : null
+                                        <td><button className="btn btn-danger"
+                                                    onClick={() => props.handleKickClick(item._id)}>KICK</button></td> : null
                                     }                                    
                                 </tr>
                             )

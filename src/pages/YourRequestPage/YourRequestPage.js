@@ -52,6 +52,14 @@ class YourRequestPage extends Component {
         )
     }
 
+    handleKickClick = async (gameId) => {
+        await gameService.kickGame(gameId).then( _ => 
+            this.setState({request_list: []}, () => {
+                this.getRequests().catch(e => {});
+            })
+        )
+    }
+
     render() {
         return(
             <>
@@ -63,7 +71,8 @@ class YourRequestPage extends Component {
                                 request_list={this.state.request_list} 
                                 request_status={this.state.request_status} 
                                 handleDeleteClick={this.handleDeleteClick}
-                                handleConfirmClick={this.handleConfirmClick}/>
+                                handleConfirmClick={this.handleConfirmClick}
+                                handleKickClick={this.handleKickClick} />
             </>    
         )
     }

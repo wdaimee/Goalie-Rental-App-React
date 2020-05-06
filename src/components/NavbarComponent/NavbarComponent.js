@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 
 export default function NavbarComponent(props) {
    
+    //variables for conditional rendering of navbar if the logged in user is a goalie
     let nav_goalie1;
     let nav_goalie2;
     if (props.user) {

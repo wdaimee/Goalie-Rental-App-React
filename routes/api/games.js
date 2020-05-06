@@ -32,4 +32,8 @@ router.put('/:id/add_goalie', gamesCtrl.add_goalie);
 //requestor of the game to confirm the game after a goalie has joined
 router.put('/:id/confirm', gamesCtrl.confirm_game);
 
+//requestor of the game can kick a goalie from a game and change the status from 
+//pending to open
+router.put('/:id/kick', gamesCtrl.kick_goalie);
+
 module.exports = router;
