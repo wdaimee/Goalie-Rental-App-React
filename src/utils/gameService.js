@@ -1,10 +1,15 @@
+import tokenService from './tokenService';
+
 const BASE_URL = '/api/games/';
 
 //create a game request
 export function create(game) {
     return fetch(BASE_URL, {
         method: 'POST',
-        headers: {'content-type': 'application/json'},
+        headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer ' + tokenService.getToken()
+                 },
         body: JSON.stringify(game)
     }).then(res => res.json());
 }
@@ -13,7 +18,10 @@ export function create(game) {
 export function getRequests(user, status) {
     return fetch(BASE_URL + 'request', {
         method: 'POST',
-        headers: {'content-type': 'application/json'},
+        headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer ' + tokenService.getToken()
+                 },
         body: JSON.stringify({'user': user, 'status': status})
     }).then(res => res.json());
 }
@@ -22,7 +30,10 @@ export function getRequests(user, status) {
 export function getOpen() {
     return fetch(BASE_URL + 'open/all/', {
         method: 'GET',
-        headers: {'content-type': 'application/json'}
+        headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer ' + tokenService.getToken()
+                 },
     }).then(res => res.json());
 }
 
@@ -30,7 +41,10 @@ export function getOpen() {
 export function joinGame(gameId, user) {
     return fetch(BASE_URL + `${gameId}` + '/add_goalie', {
         method: 'PUT',
-        headers: {'content-type': 'application/json'},
+        headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer ' + tokenService.getToken()
+                 },
         body: JSON.stringify({'user': user, 'game': gameId})
     }).then(res => res.json());
 }
@@ -46,7 +60,10 @@ export function deleteGame(gameId) {
 export function confirmGame(gameId) {
     return fetch(BASE_URL + `${gameId}` + '/confirm', {
         method: 'PUT',
-        headers: {'content-type': 'application/json'}
+        headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer ' + tokenService.getToken()
+                 },
     }).then(res => res.json());
 }
 
