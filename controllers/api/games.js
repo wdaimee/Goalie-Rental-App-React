@@ -268,9 +268,6 @@ function delete_game(req, res) {
             console.log("error: " + err);
             res.sendStatus(500);
         }
-        if (req.user.id != game.requestor._id) {
-            return res.json({response: "You don't have permission to delete this game."})
-        }
         Game.findByIdAndDelete(game)
         .populate('arena')
         .populate('goalie')

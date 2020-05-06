@@ -41,7 +41,7 @@ export default function TableEntryOpenComponent(props) {
                                     <td>{item.description}</td>
                                     <td>{item.status.toUpperCase()}</td>
                                     <td><button className="btn btn-secondary">EDIT</button></td>
-                                    <td><button className="btn btn-danger" style={{textAlign: "center"}}>X</button></td>
+                                    <td><button className="btn btn-danger" onClick={() => props.handleDeleteClick(item._id)} style={{textAlign: "center"}}>X</button></td>
                                 </tr>
                             )
                         })}

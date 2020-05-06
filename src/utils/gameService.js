@@ -28,7 +28,6 @@ export function getOpen() {
 
 //function for goalie to join a game
 export function joinGame(gameId, user) {
-    console.log(user)
     return fetch(BASE_URL + `${gameId}` + '/add_goalie', {
         method: 'PUT',
         headers: {'content-type': 'application/json'},
@@ -36,3 +35,9 @@ export function joinGame(gameId, user) {
     }).then(res => res.json());
 }
 
+//function delete a game
+export function deleteGame(gameId) {
+    return fetch(BASE_URL + gameId, {
+        method: 'DELETE'
+    }).then(res => res.json());
+}
