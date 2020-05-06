@@ -1,68 +1,49 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ # gÜber - The Goalie Rental App Fullstack App
 
-## Available Scripts
+ ### About:
 
-In the project directory, you can run:
+ gÜber Goalie Rental App is a Fullstack MERN application which allows users to make requests to fill a need for a goalie in either a Hockey, Soccer, or Lacrosse game. Users can either make a request for a goalie or if a user is signed up as a goalie, fill one of the open requests. Authorization was built using JSON Web Token (JWT) authorization. Therefore, users can signup and login. Ajax requests are made to the backend MongoDB database to store data such as created requests for goalies, user data, and history of game requests.
 
-### `yarn start`
+ This app was broken into 2 stages:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ 1. RESTFUL API with CRUD Functionality (Past Project)
+    - Docs page available to explain API functionality.
+    - To access the docs page for API, please visit the link below:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+        [https://goalie-rental-app.herokuapp.com/api/docs](https://goalie-rental-app.herokuapp.com/api/docs)
 
-### `yarn test`
+    - To view the source code and details for the backend please visit the link below to the Github repo:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+        [https://github.com/wdaimee/Goalie-Rental-App-Docs](https://github.com/wdaimee/Goalie-Rental-App-Docs)
 
-### `yarn build`
+2. React Front End (Current Project)
+    - The React Fullstack App can be accessed from the link below:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - Originally, the React Frontend was going to be added to the original backend above. After reviewing the code and the requirements to implement JWT Authorization, I decided that copying over the backend to a new Fullstack project would be the most logical choice for the following reasons:
+        - View how my progress has changed from the two projects.
+        - Review mistakes that I made in the past and how to overcome them.
+        - Keep the docs page intact without any major reprogramming.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### List of Technologies Used for Fullstack Project:
+- Backend/API:
+    - Node.js
+    - Express.js
+    - MongoDB
+    - Mongoose
+    - Mongoose Atlas DB
+    - JavaScript
+    - JSON Web Token Authorization
+    - HTML (docs page)
+    - Bootstrap4 (docs page)
+    - Deployed with Heroku
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Frontend
+    - React.js
+    - Bootstrap4
+    - CSS
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Next Steps:
+- Add review functionality for the following user story:
+    - As a user, I want to be able to leave a review for another user to communicate to others if I had a positive or negative experience.
+    - Implement Admin functionality so that an admin can make changes to data in the backend such as: removing users, adding or removing arenas, etc.
+    - Add a notification system to inform users if their requests were filled.

@@ -27,7 +27,7 @@ class LoginPage extends Component {
 
     render() {
         return (
-            <div className="login-page" style={{height: "70vh"}}>
+            <div className="login-page" style={{height: "90vh"}}>
                 <div className="login-caption">
                     <header className="header-footer login-header">gÜber</header>
                     <p>Log In to Your Account</p>
