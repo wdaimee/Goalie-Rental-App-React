@@ -6,7 +6,7 @@ const gamesCtrl = require('../../controllers/api/games');
 router.post('/request', gamesCtrl.requestor);
 
 //get a list of goalie history - working
-router.get('/goalie', gamesCtrl.goalie);
+router.post('/goalie', gamesCtrl.goalie);
 
 //get a list of all active requests available (looks to be ok - further testing needed)
 router.get('/open/all', gamesCtrl.all_open)

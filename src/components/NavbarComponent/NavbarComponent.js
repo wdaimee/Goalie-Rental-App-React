@@ -8,8 +8,8 @@ export default function NavbarComponent(props) {
     let nav_goalie1;
     let nav_goalie2;
     if (props.user) {
-        nav_goalie1 = props.user.goalie ? <Nav.Link href="games">Find Games</Nav.Link> : null;
-        nav_goalie2 = props.user.goalie ? <Nav.Link href ="">My Games</Nav.Link> : null;
+        nav_goalie1 = props.user.goalie ? <Nav.Link href="/games">Find Games</Nav.Link> : null;
+        nav_goalie2 = props.user.goalie ? <Nav.Link href="/mygames">My Games</Nav.Link> : null;
     }
 
     let nav = props.user ?
@@ -20,7 +20,7 @@ export default function NavbarComponent(props) {
             <Nav className="ml-auto">
                 {nav_goalie1}
                 {nav_goalie2}
-                <Nav.Link href="/requests">Your Requests</Nav.Link>
+                <Nav.Link href="/requests">My Requests</Nav.Link>
                 <Nav.Link href="/create">Make Request</Nav.Link>
                 <Nav.Link href="">Profile</Nav.Link>
                 <Nav.Link href="/" onClick={props.handleLogout}>Log Out</Nav.Link>

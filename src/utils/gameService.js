@@ -66,3 +66,12 @@ export function editGame(game, arena) {
         body: JSON.stringify({'game': game, 'arena': arena})
     }).then(res => res.json());
 }
+
+export function getGamesForGoalie(user, status) {
+    return fetch(BASE_URL + 'goalie', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({'user': user, 'status': status})
+    }).then(res => res.json());
+}
+

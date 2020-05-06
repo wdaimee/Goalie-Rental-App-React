@@ -49,8 +49,8 @@ function requestor(req, res) {
 
 //send a list of games a goalie has played - query for all, pending, confirmed - works
 function goalie(req, res) {
-    if(req.query.status === 'all') {
-        Game.find({goalie: req.user})
+    if(req.body.status === 'all') {
+        Game.find({goalie: req.body.user})
         .populate('requestor')
         .populate('arena')
         .populate('goalie')
@@ -63,7 +63,7 @@ function goalie(req, res) {
             res.json(games);
         });
     } else {
-        Game.find({goalie: req.user, status: req.query.status})
+        Game.find({goalie: req.body.user, status: req.body.status})
         .populate('requestor')
         .populate('arena')
         .populate('goalie')

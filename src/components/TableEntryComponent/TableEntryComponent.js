@@ -71,11 +71,11 @@ export default function TableEntryComponent(props) {
                                                     onClick={() => props.handleDeleteClick(item._id)} 
                                                     style={{textAlign: "center"}}>X</button></td> : null
                                     }
-                                    {item.status === 'pending' ?
+                                    {item.status === 'pending' && item.requestor._id === props.user ?
                                         <td><button className="btn btn-success" 
                                                     onClick={() => props.handleConfirmClick(item._id)}>CONFIRM</button></td> : null
                                     }
-                                    {item.status === 'pending' ?
+                                    {item.status === 'pending' && item.requestor._id === props.user ?
                                         <td><button className="btn btn-danger"
                                                     onClick={() => props.handleKickClick(item._id)}>KICK</button></td> : null
                                     }                                    
