@@ -138,11 +138,6 @@ function confirm_game(req, res) {
             console.log('err:' + err);
             res.sendStatus(500);
         }
-        console.log(req.user.id);
-        console.log(game.requestor._id);
-        if (req.user.id != game.requestor._id) {
-            return res.json({response: 'You don\'t have access to confirm the game, only the requestor does.'})
-        }
         game.status = 'confirmed';
         game.save((err, game) => {
             if (err) {

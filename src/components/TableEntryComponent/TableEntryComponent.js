@@ -57,10 +57,13 @@ export default function TableEntryComponent(props) {
                                         <td><button className="btn btn-secondary">EDIT</button></td> : null
                                     }
                                     {item.status === 'open'? 
-                                        <td><button className="btn btn-danger">X</button></td> : null
+                                        <td><button className="btn btn-danger" 
+                                                    onClick={() => props.handleDeleteClick(item._id)} 
+                                                    style={{textAlign: "center"}}>X</button></td> : null
                                     }
                                     {item.status === 'pending' ?
-                                        <td><button className="btn btn-success">CONFIRM</button></td> : null
+                                        <td><button className="btn btn-success" 
+                                                    onClick={() => props.handleConfirmClick(item._id)}>CONFIRM</button></td> : null
                                     }
                                     {item.status === 'pending' ?
                                         <td><button className="btn btn-danger">KICK</button></td> : null

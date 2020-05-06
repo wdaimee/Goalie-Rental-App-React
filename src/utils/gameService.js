@@ -41,3 +41,11 @@ export function deleteGame(gameId) {
         method: 'DELETE'
     }).then(res => res.json());
 }
+
+//function confirm game
+export function confirmGame(gameId) {
+    return fetch(BASE_URL + `${gameId}` + '/confirm', {
+        method: 'PUT',
+        headers: {'content-type': 'application/json'}
+    }).then(res => res.json());
+}

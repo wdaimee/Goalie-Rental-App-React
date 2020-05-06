@@ -44,13 +44,26 @@ class YourRequestPage extends Component {
         )
     }
 
+    handleConfirmClick = async (gameId) => {
+        await gameService.confirmGame(gameId).then( _ => 
+            this.setState({request_list: []}, () => {
+                this.getRequests().catch(e => {});
+            })
+        )
+    }
+
     render() {
         return(
             <>
                 <WelcomeComponent user={this.props.user}/>
                 <HomeInfoComponent request_status={this.state.request_status}/>
-                <ViewsDropDownComponent request_status={this.state.request_status} handleChangeSelectBox={this.handleChangeSelectBox} />
-                <TableComponent request_list={this.state.request_list} request_status={this.state.request_status} handleDeleteClick={this.handleDeleteClick}/>
+                <ViewsDropDownComponent request_status={this.state.request_status} 
+                                        handleChangeSelectBox={this.handleChangeSelectBox} />
+                <TableComponent user={this.props.user}
+                                request_list={this.state.request_list} 
+                                request_status={this.state.request_status} 
+                                handleDeleteClick={this.handleDeleteClick}
+                                handleConfirmClick={this.handleConfirmClick}/>
             </>    
         )
     }

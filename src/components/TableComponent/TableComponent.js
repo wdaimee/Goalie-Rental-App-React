@@ -7,11 +7,16 @@ export default function TableComponent(props) {
     let table_data;
 
     if (props.request_status === 'open') {
-        table_data = <TableEntryOpenComponent request_list={props.request_list} handleDeleteClick={props.handleDeleteClick}/>
+        table_data = <TableEntryOpenComponent request_list={props.request_list} 
+                                              handleDeleteClick={props.handleDeleteClick}/>
     }
 
     else {
-        table_data = <TableEntryComponent request_list={props.request_list} request_status={props.request_status}/>
+        table_data = <TableEntryComponent user={props.user}
+                                          request_list={props.request_list}
+                                          request_status={props.request_status}
+                                          handleConfirmClick={props.handleConfirmClick}
+                                          handleDeleteClick={props.handleDeleteClick}/>
     }
 
     return (
