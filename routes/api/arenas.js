@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const arenaCtrl = require('../../controllers/api/arenas');
 
+//protect routes and ensure user is logged in to access below routes
+router.use(require('../../config/auth'));
+
 //get all arenas
 router.get('/', arenaCtrl.index);
 

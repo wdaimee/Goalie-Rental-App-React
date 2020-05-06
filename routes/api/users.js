@@ -8,6 +8,10 @@ router.get('/', userCtrl.index);
 router.post('/', userCtrl.create);
 //login a user
 router.post('/login', userCtrl.login);
+
+//protect routes and ensure user is logged in to access below routes
+router.use(require('../../config/auth'));
+
 //update a user
 router.put('/:id', userCtrl.update);
 //show a specific user

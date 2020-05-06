@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const gamesCtrl = require('../../controllers/api/games');
 
+//protect routes and ensure user is logged in to access below routes
+router.use(require('../../config/auth'));
+
 //get a list of requestors history - working
 router.post('/request', gamesCtrl.requestor);
 
