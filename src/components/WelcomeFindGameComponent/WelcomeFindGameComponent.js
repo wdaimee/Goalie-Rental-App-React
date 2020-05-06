@@ -8,4 +8,4 @@ export default function WelcomePage(props) {
             <h3 className="display-5 text-center">View Games Needing a Goalie</h3>
         </div>
     )
-}
+} 
