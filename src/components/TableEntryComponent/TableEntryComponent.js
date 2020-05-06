@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 
 export default function TableEntryComponent(props) {
     let header;
+    let extrafields = <th scope="col"></th>
     if (props.request_status === "pending") {
         header = <h2 style={{marginLeft: "1em"}}>Pending Requests</h2>
     }
     else if (props.request_status === "confirmed") {
         header = <h2 style={{marginLeft: "1em"}}>Confirmed Requests</h2>
+        extrafields = null;
     }
     else if (props.request_status === "all") {
         header = <h2 style={{marginLeft: "1em"}}>All Requests</h2>
@@ -34,6 +36,8 @@ export default function TableEntryComponent(props) {
                             <th scope="col">Description</th>
                             <th scope="col">Status</th>
                             <th scope="col">Goalie</th>
+                            {extrafields}
+                            {extrafields}
                         </tr>
                     </thead>
                     <tbody>
