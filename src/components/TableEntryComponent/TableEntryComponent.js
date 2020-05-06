@@ -1,7 +1,10 @@
 import React from 'react';
+import dateFormat from 'dateformat';
 
 export default function TableEntryComponent(props) {
     let header;
+    let actionBtn1;
+    let actionBtn2;
     if (props.request_status === "pending") {
         header = <h2 style={{marginLeft: "1em"}}>Pending Requests</h2>
     }
@@ -32,8 +35,6 @@ export default function TableEntryComponent(props) {
                             <th scope="col">Description</th>
                             <th scope="col">Status</th>
                             <th scope="col">Goalie</th>
-                            <th scope="col">Edit</th>
-                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -45,7 +46,7 @@ export default function TableEntryComponent(props) {
                                     <td>{item.requestor.email}</td>
                                     <td>{item.sport.toUpperCase()}</td>
                                     <td>{item.skill_level}</td>
-                                    <td>{item.request_date}</td>
+                                    <td>{dateFormat(item.request_date, "mmmmm dS, yyyy")}</td>
                                     <td>{item.request_time}</td>
                                     <td>{item.team_name}</td>
                                     <td>{item.arena.name}</td>

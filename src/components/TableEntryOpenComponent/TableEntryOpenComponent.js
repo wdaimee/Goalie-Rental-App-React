@@ -1,4 +1,5 @@
 import React from 'react';
+import dateFormat from 'dateformat';
 
 export default function TableEntryOpenComponent(props) {
     return(
@@ -20,8 +21,6 @@ export default function TableEntryOpenComponent(props) {
                             <th scope="col">City</th>
                             <th scope="col">Description</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Edit</th>
-                            <th scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,7 +32,7 @@ export default function TableEntryOpenComponent(props) {
                                     <td>{item.requestor.email}</td>
                                     <td>{item.sport.toUpperCase()}</td>
                                     <td>{item.skill_level}</td>
-                                    <td>{item.request_date}</td>
+                                    <td>{dateFormat(item.request_date, "mmmmm dS, yyyy")}</td>
                                     <td>{item.request_time}</td>
                                     <td>{item.team_name}</td>
                                     <td>{item.arena.name}</td>

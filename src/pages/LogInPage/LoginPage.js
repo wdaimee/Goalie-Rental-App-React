@@ -19,7 +19,7 @@ class LoginPage extends Component {
         try {
             await userService.login(this.state);
             this.props.handleSignupOrLogin();
-            this.props.history.push('/');
+            this.props.history.push('/requests');
         } catch (err) {
             alert('Invalid Credentials!');
         }
