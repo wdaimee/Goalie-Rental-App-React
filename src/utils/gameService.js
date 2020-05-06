@@ -71,7 +71,10 @@ export function confirmGame(gameId) {
 export function kickGame(gameId) {
     return fetch(BASE_URL + `${gameId}` + '/kick', {
         method: 'PUT',
-        headers: {'content-type': 'application/json'}
+        headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer ' + tokenService.getToken()
+                 },
     }).then(res => res.json());
 }
 
@@ -79,7 +82,10 @@ export function kickGame(gameId) {
 export function editGame(game, arena) {
     return fetch(BASE_URL + `${game._id}`, {
         method: 'PUT',
-        headers: {'content-type': 'application/json'},
+        headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer ' + tokenService.getToken()
+                 },
         body: JSON.stringify({'game': game, 'arena': arena})
     }).then(res => res.json());
 }
@@ -87,7 +93,10 @@ export function editGame(game, arena) {
 export function getGamesForGoalie(user, status) {
     return fetch(BASE_URL + 'goalie', {
         method: 'POST',
-        headers: {'content-type': 'application/json'},
+        headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer ' + tokenService.getToken()
+                 },
         body: JSON.stringify({'user': user, 'status': status})
     }).then(res => res.json());
 }
