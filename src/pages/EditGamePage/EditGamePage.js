@@ -3,7 +3,6 @@ import Select from 'react-select';
 import { Link } from 'react-router-dom';
 import * as arenaService from '../../utils/arenaService';
 import * as gameService from '../../utils/gameService';
-import './CreateRequestFormComponent.css';
 
 const sportList = [
     {value: 'hockey', label: 'Hockey'},
@@ -25,37 +24,42 @@ const cityList = [
     {value: 'Brampton', label: 'Brampton'}
 ]
 
-class CreateRequestFormComponent extends Component {    
+class EditGamePage extends Component {    
     state = {
-        requestor: this.props.user._id,
-        sport: "",
-        skill_level: "",
-        city: "",
-        arena: "",
-        request_time: "",
-        request_date: "",
-        team_name: "",
-        description: "",
+        invalidForm: false,
+        formData: this.props.location.state.item,
         arenaList: []
-     }
+    }
 
-     //handle any changes to form if text changes
+    formRef = React.createRef();
+
+    async componentDidMount() {
+        this.handleArenaGet(this.state.formData.city);
+    }
+
+    //handle any changes to form if text changes
     handleChange = (evt) => {
+        const formData = {...this.state.formData, [evt.target.name]: evt.target.value}
         this.setState({
-            [evt.target.name]: evt.target.value
+            formData,
+            invalidForm: !this.formRef.current.checkValidity()
         });
     }
 
     //handle any changes to form select boxes
     handleChangeSelectBox = (value, state) => {
-        this.setState({[state]: value});
+        const formData = {...this.state.formData, [state]: value}
+        this.setState({
+            formData,
+            invalid: !this.formRef.current.checkValidity()
+        });
     }
 
     //handle change for when city checkbox changes, will fetch and update arean list
     handleChangeSelectBoxCity = (value, state) => {
         this.handleChangeSelectBox(value, state);
         this.setState({arenaList: []}, () => {
-            this.handleArenaGet(this.state.city).catch(e => {
+            this.handleArenaGet(this.state.formData.city).catch(e => {
             });
         });
     }
@@ -70,16 +74,10 @@ class CreateRequestFormComponent extends Component {
 
     handleSubmit = async (evt) => {
         evt.preventDefault();
-        //create a req.body from state without the areanList. Don't want to send arena list in req.body
-        const body = Object.keys(this.state).reduce((object, key) => {
-            if (key !== "arenaList") {
-                object[key] = this.state[key]
-            }
-            return object
-        }, {})
+        const body = this.state.formData
         try {
-            await gameService.create(body); 
-            this.props.history.push('/');
+            await gameService.editGame(body); 
+            this.props.history.push('/requests');
         } catch (err) {
             this.props.updateMessage(err.message);
         }
@@ -90,19 +88,25 @@ class CreateRequestFormComponent extends Component {
                  && this.state.request_time && this.state.request_date && this.state.team_name);
     }
 
+    //function to capitilize first letter of a string
+    capFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     render() {
         return(
             <div className="create-container">
                 <div className="create-caption">
-                    <header className="header-footer create-header">Create a Request for a Goalie</header>
-                    <p>Fill out the form below to make a game request, goalies will see the request online and can request to join.</p>
+                    <header className="header-footer create-header">Edit Your Request</header>
+                    <p>Use the form below to edit your request.</p>
                 </div>
-                <form className="form-horizontal" onSubmit={this.handleSubmit}>
+                <form ref={this.formRef} className="form-horizontal" onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <div className="col-sm-12">
                             <Select options={sportList} 
                                     placeholder="Select Sport: Hockey, Soccer, or Lacrosse" 
-                                    name="sport" 
+                                    name="sport"
+                                    value={{label: this.capFirstLetter(this.state.formData.sport)}} 
                                     onChange={({ value }) => this.handleChangeSelectBox(value, "sport")} />
                         </div>
                     </div>
@@ -111,6 +115,7 @@ class CreateRequestFormComponent extends Component {
                             <Select options={skillLevelList} 
                                     placeholder="Select the Skill Level for the Game" 
                                     name="skill_level" 
+                                    value={{label: this.state.formData.skill_level}}
                                     onChange={({ value }) => this.handleChangeSelectBox(value, "skill_level")} />
                         </div>
                     </div>
@@ -119,6 +124,7 @@ class CreateRequestFormComponent extends Component {
                             <Select options={cityList} 
                                     placeholder="Select the City" 
                                     name="city"
+                                    value={{label: this.state.formData.city}}
                                     onChange={({ value }) => this.handleChangeSelectBoxCity(value, "city")} />
                         </div>
                     </div>
@@ -127,7 +133,8 @@ class CreateRequestFormComponent extends Component {
                             <Select options={this.state.arenaList} 
                                     placeholder="Select the Arena" 
                                     name="arena"
-                                    onChange={({ value }) => this.handleChangeSelectBoxCity(value, "arena")} />
+                                    {this.formData.arena.name ? value = {{label: this.state.formData.arena.name}} : value = {{label: this.state.formData.area}}
+                                    onChange={({ value }) => this.handleChangeSelectBox(value, "arena")} />
                         </div>
                     </div>
                     <div className="form-group">
@@ -135,7 +142,7 @@ class CreateRequestFormComponent extends Component {
                             <input type="text" 
                                    className="form-control" 
                                    placeholder="Enter the Time in Military: HH:MM:SS" 
-                                   value={this.state.request_time} name="request_time" 
+                                   value={this.state.formData.request_time} name="request_time" 
                                    onChange={this.handleChange} />
                         </div>
                     </div>
@@ -144,7 +151,7 @@ class CreateRequestFormComponent extends Component {
                             <input type="text" 
                                    className="form-control" 
                                    placeholder="Enter the Date: YYYY-MM-DD" 
-                                   value={this.state.request_date} name="request_date" 
+                                   value={this.state.formData.request_date} name="request_date" 
                                    onChange={this.handleChange} />
                         </div>
                     </div>
@@ -153,7 +160,7 @@ class CreateRequestFormComponent extends Component {
                             <input type="text" 
                                    className="form-control" 
                                    placeholder="What is Your Team Name?" 
-                                   value={this.state.team_name} name="team_name" 
+                                   value={this.state.formData.team_name} name="team_name" 
                                    onChange={this.handleChange} />
                         </div>
                     </div>
@@ -162,14 +169,14 @@ class CreateRequestFormComponent extends Component {
                             <input type="text" 
                                    className="form-control" 
                                    placeholder="Add Any Other Details Here. Ex. 5v5 or League Game" 
-                                   value={this.state.description} name="description" 
+                                   value={this.state.formData.description} name="description" 
                                    onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="form-group">
                         <div className="col-sm-12 text-center">
-                            <button className="btn btn-success" default={this.isFormInvalid()}>Create Request</button>&nbsp;&nbsp;
-                            <Link className="btn btn-danger" to='/'>Cancel</Link>
+                            <button className="btn btn-success" default={this.isFormInvalid()}>Edit Request</button>&nbsp;&nbsp;
+                            <Link className="btn btn-danger" to='/requests'>Cancel</Link>
                         </div>
                     </div>
                 </form>
@@ -178,4 +185,4 @@ class CreateRequestFormComponent extends Component {
      }
 }
 
-export default CreateRequestFormComponent;
+export default EditGamePage;

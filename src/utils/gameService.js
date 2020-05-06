@@ -57,3 +57,12 @@ export function kickGame(gameId) {
         headers: {'content-type': 'application/json'}
     }).then(res => res.json());
 }
+
+//function to edit a game
+export function editGame(game) {
+    return fetch(BASE_URL + `${game._id}`, {
+        method: 'PUT',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify(game)
+    }).then(res => res.json());
+}

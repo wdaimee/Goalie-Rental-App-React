@@ -1,5 +1,6 @@
 import React from 'react';
 import dateFormat from 'dateformat';
+import { Link } from 'react-router-dom';
 
 export default function TableEntryOpenComponent(props) {
     return(
@@ -40,7 +41,11 @@ export default function TableEntryOpenComponent(props) {
                                     <td>{item.city}</td>
                                     <td>{item.description}</td>
                                     <td>{item.status.toUpperCase()}</td>
-                                    <td><button className="btn btn-secondary">EDIT</button></td>
+                                    <Link className="btn btn-secondary"
+                                          to={{
+                                              pathname: '/requests/edit',
+                                              state: {item}
+                                          }}>EDIT</Link>
                                     <td><button className="btn btn-danger" onClick={() => props.handleDeleteClick(item._id)} style={{textAlign: "center"}}>X</button></td>
                                 </tr>
                             )
