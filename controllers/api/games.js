@@ -231,10 +231,28 @@ function update(req, res) {
         if (err) {
             console.log("error:" + err);
         }
-        if (req.user.id != game.requestor._id) {
-            return res.json({response: 'You don\'t have permission to edit this game, only the requestor can'})
-        }
-        Game.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        if (!req.body.arena._id) {
+            Arena.findOne({name: req.body.arena}, (err, arena) => {
+                game.arena = arena._id;
+                game.save((err, game) => {
+                    if (err) {
+                        console.log("error: " + err);
+                        res.sendStatus(500);
+                    }
+                    Game.findOne(game)
+                    .populate('arena')
+                    .populate('goalie')
+                    .populate('requestor')
+                    .exec((err, game) => {
+                        if (err) {
+                            console.log("error: " + err);
+                            res.sendStatus(500);
+                        }
+                    });
+                });
+            });
+        } 
+        Game.findByIdAndUpdate(req.params.id, req.body.game, {new: true})
         .exec((err, game) => {
             if (err) {
                 console.log("error: " + err);

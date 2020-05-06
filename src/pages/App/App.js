@@ -49,8 +49,8 @@ class App extends Component {
           <Route exact path="/games" render={() => (
             <FindGamesPage user={this.state.user} />
           )} />
-          <Route exact path="/requests/edit" render={({location}) => (
-            <EditGamePage location={location}/>
+          <Route exact path="/requests/edit" render={({ location, history }) => (
+            <EditGamePage location={location} history={history}/>
           )} />
         </Switch>
         <FooterComponent />

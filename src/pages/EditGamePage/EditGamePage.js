@@ -74,12 +74,18 @@ class EditGamePage extends Component {
 
     handleSubmit = async (evt) => {
         evt.preventDefault();
-        const body = this.state.formData
+        const body = Object.keys(this.state.formData).reduce((object, key) => {
+            if (key !== "arena") {
+                object[key] = this.state.formData[key]
+            }
+            return object;
+        }, {})
+        const arena = this.state.formData.arena
         try {
-            await gameService.editGame(body); 
+            await gameService.editGame(body, arena); 
             this.props.history.push('/requests');
         } catch (err) {
-            this.props.updateMessage(err.message);
+            console.log(err);
         }
     }
 
@@ -133,7 +139,7 @@ class EditGamePage extends Component {
                             <Select options={this.state.arenaList} 
                                     placeholder="Select the Arena" 
                                     name="arena"
-                                    {this.formData.arena.name ? value = {{label: this.state.formData.arena.name}} : value = {{label: this.state.formData.area}}
+                                    value = {{label: this.state.formData.arena.name ? this.state.formData.arena.name : this.state.formData.arena}} 
                                     onChange={({ value }) => this.handleChangeSelectBox(value, "arena")} />
                         </div>
                     </div>
