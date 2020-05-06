@@ -23,7 +23,7 @@ export default function HomeInfoComponent(props) {
     else {
         info =  <div className="jumbotron jumbotron-fluid" style={{padding: "1em 2em", marginBottom: 0}}>
                     <h2 className="display-5">View a List of All Your Requests Below.</h2>
-                    <p style={{marginTop: "15px"}}>Look through the list and confirm or deny a goalie to join your game.</p>
+                    <p style={{marginTop: "15px"}}>You can review your history of requests or you can updated, delete, or confirm requests.</p>
                 </div>
     }
     return (

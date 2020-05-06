@@ -3,12 +3,8 @@ import dateFormat from 'dateformat';
 
 export default function TableEntryComponent(props) {
     let header;
-    let actionBtn1;
-    let actionBtn2;
     if (props.request_status === "pending") {
         header = <h2 style={{marginLeft: "1em"}}>Pending Requests</h2>
-        actionBtn1 = <td><button className="btn btn-success">CONFIRM</button></td>
-        actionBtn2 = <td><button className="btn btn-danger">KICK</button></td>
     }
     else if (props.request_status === "confirmed") {
         header = <h2 style={{marginLeft: "1em"}}>Confirmed Requests</h2>
