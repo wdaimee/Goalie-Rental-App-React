@@ -1,5 +1,6 @@
 import React from 'react';
 import dateFormat from 'dateformat';
+import { Link } from 'react-router-dom';
 
 export default function TableEntryComponent(props) {
     let header;
@@ -44,7 +45,7 @@ export default function TableEntryComponent(props) {
                                     <td>{item.requestor.email}</td>
                                     <td>{item.sport.toUpperCase()}</td>
                                     <td>{item.skill_level}</td>
-                                    <td>{dateFormat(item.request_date, "mmmmm dS, yyyy")}</td>
+                                    <td>{dateFormat(item.request_date, "UTC:dddd, mmmm dS, yyyy")}</td>
                                     <td>{item.request_time}</td>
                                     <td>{item.team_name}</td>
                                     <td>{item.arena.name}</td>
@@ -54,7 +55,12 @@ export default function TableEntryComponent(props) {
                                     <td>{item.status.toUpperCase()}</td>
                                     {item.goalie ? <td>{item.goalie.name}</td> : <td>No Goalie</td>}
                                     {item.status === 'open'? 
-                                        <td><button className="btn btn-secondary">EDIT</button></td> : null
+                                        <td><Link className="btn btn-secondary pagination-centered"
+                                        style={{verticalAlign: "middle"}}
+                                        to={{
+                                            pathname: '/requests/edit',
+                                            state: {item}
+                                        }}>EDIT</Link></td> : null
                                     }
                                     {item.status === 'open'? 
                                         <td><button className="btn btn-danger" 

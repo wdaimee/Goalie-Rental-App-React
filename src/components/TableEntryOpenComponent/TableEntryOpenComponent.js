@@ -33,7 +33,7 @@ export default function TableEntryOpenComponent(props) {
                                     <td>{item.requestor.email}</td>
                                     <td>{item.sport.toUpperCase()}</td>
                                     <td>{item.skill_level}</td>
-                                    <td>{dateFormat(item.request_date, "mmmmm dS, yyyy")}</td>
+                                    <td>{dateFormat(item.request_date, "UTC:dddd, mmmm dS, yyyy")}</td>
                                     <td>{item.request_time}</td>
                                     <td>{item.team_name}</td>
                                     <td>{item.arena.name}</td>
@@ -41,11 +41,12 @@ export default function TableEntryOpenComponent(props) {
                                     <td>{item.city}</td>
                                     <td>{item.description}</td>
                                     <td>{item.status.toUpperCase()}</td>
-                                    <Link className="btn btn-secondary"
+                                    <td><Link className="btn btn-secondary pagination-centered"
+                                          style={{verticalAlign: "middle"}}
                                           to={{
                                               pathname: '/requests/edit',
                                               state: {item}
-                                          }}>EDIT</Link>
+                                          }}>EDIT</Link></td>
                                     <td><button className="btn btn-danger" onClick={() => props.handleDeleteClick(item._id)} style={{textAlign: "center"}}>X</button></td>
                                 </tr>
                             )

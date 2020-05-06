@@ -14,7 +14,7 @@ export default function ViewsDropDownComponent(props) {
             <div className="col-sm-6">
             <Select options={statusList} 
                     name="status" 
-                    value={props.request_status}
+                    value={{label: props.request_status.toUpperCase()}}
                     onChange={({ value }) => props.handleChangeSelectBox(value, "request_status")} />
             </div>
         </>    
