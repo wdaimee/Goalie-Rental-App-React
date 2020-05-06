@@ -7,6 +7,8 @@ export default function TableEntryComponent(props) {
     let actionBtn2;
     if (props.request_status === "pending") {
         header = <h2 style={{marginLeft: "1em"}}>Pending Requests</h2>
+        actionBtn1 = <td><button className="btn btn-success">CONFIRM</button></td>
+        actionBtn2 = <td><button className="btn btn-danger">KICK</button></td>
     }
     else if (props.request_status === "confirmed") {
         header = <h2 style={{marginLeft: "1em"}}>Confirmed Requests</h2>
@@ -55,8 +57,18 @@ export default function TableEntryComponent(props) {
                                     <td>{item.description}</td>
                                     <td>{item.status.toUpperCase()}</td>
                                     {item.goalie ? <td>{item.goalie.name}</td> : <td>No Goalie</td>}
-                                    <td><button className="btn btn-secondary">EDIT</button></td>
-                                    <td><button className="btn btn-danger" style={{textAlign: "center"}}>X</button></td>
+                                    {item.status === 'open'? 
+                                        <td><button className="btn btn-secondary">EDIT</button></td> : null
+                                    }
+                                    {item.status === 'open'? 
+                                        <td><button className="btn btn-danger">X</button></td> : null
+                                    }
+                                    {item.status === 'pending' ?
+                                        <td><button className="btn btn-success">CONFIRM</button></td> : null
+                                    }
+                                    {item.status === 'pending' ?
+                                        <td><button className="btn btn-danger">KICK</button></td> : null
+                                    }                                    
                                 </tr>
                             )
                         })}
