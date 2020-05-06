@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import userService from '../../utils/userService';
 import SignUpPage from '../SignUpPage/SignUpPage';
 import LogInPage from '../LogInPage/LoginPage';
@@ -42,19 +42,34 @@ class App extends Component {
             <LogInPage history={history} handleSignupOrLogin={this.handleSignupOrLogin} />
           )} />
           <Route exact path="/create" render={({ history }) => (
-            <CreateRequestPage user={this.state.user} history={history}/>
+            userService.getUser() ?
+              <CreateRequestPage user={this.state.user} history={history}/>
+                :
+              <Redirect to="/login" />
           )} />
           <Route exact path="/requests" render={() => (
-            <YourRequestPage user={this.state.user}/>
+            userService.getUser() ?
+              <YourRequestPage user={this.state.user}/>
+                :
+              <Redirect to="/login" />
           )} />
           <Route exact path="/games" render={() => (
-            <FindGamesPage user={this.state.user} />
+            userService.getUser() ?
+              <FindGamesPage user={this.state.user} />
+                :
+              <Redirect to="/login" />
           )} />
           <Route exact path="/requests/edit" render={({ location, history }) => (
-            <EditGamePage location={location} history={history}/>
+            userService.getUser() ?
+              <EditGamePage location={location} history={history}/>
+                :
+              <Redirect to="/login" />
           )} />
           <Route exact path="/mygames" render={() => (
-            <MyGamesPage user={this.state.user}/>
+            userService.getUser() ?
+              <MyGamesPage user={this.state.user}/>
+                :
+              <Redirect to="/login" />
           )} />
         </Switch>
         <FooterComponent />
