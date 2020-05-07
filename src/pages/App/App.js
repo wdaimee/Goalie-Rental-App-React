@@ -20,6 +20,10 @@ class App extends Component {
     user: ''
   }
 
+  componentWillMount() {
+    document.title = "gÜber"
+  }
+
   async componentDidMount() {
     let user = await userService.getUser();
     this.handleUserStateChange(user);
@@ -65,10 +69,10 @@ class App extends Component {
               <Redirect to="/login" />
           )} />
           <Route exact path="/games" render={() => (
-            userService.getUser() ?
+            userService.getUser() && userService.getUser().goalie ?
               <FindGamesPage user={this.state.user} />
                 :
-              <Redirect to="/login" />
+              <Redirect to="/requests" />
           )} />
           <Route exact path="/requests/edit" render={({ location, history }) => (
             userService.getUser() ?
@@ -77,10 +81,10 @@ class App extends Component {
               <Redirect to="/login" />
           )} />
           <Route exact path="/mygames" render={() => (
-            userService.getUser() ?
+            userService.getUser() && userService.getUser().goalie ?
               <MyGamesPage user={this.state.user}/>
                 :
-              <Redirect to="/login" />
+              <Redirect to="/requests" />
           )} />
           <Route exact path="/profile" render={() => (
             userService.getUser() ?
