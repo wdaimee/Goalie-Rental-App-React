@@ -1,0 +1,22 @@
+.card {
+    margin: 30px;
+}
+
+.card-header {
+    font-size: 40px;
+}
+
+.card-title {
+    font-size: 30px;
+    padding: 10px;
+}
+
+.card-text {
+    font-size: 25px;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.card>hr {
+    border: 1px solid white;
+}

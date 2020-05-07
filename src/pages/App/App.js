@@ -12,6 +12,7 @@ import YourRequestPage from '../YourRequestPage/YourRequestPage';
 import FindGamesPage from '../FindGamesPage/FindGamesPage';
 import EditGamePage from '../EditGamePage/EditGamePage';
 import MyGamesPage from '../MyGamesPage/MyGamesPage';
+import ProfilePage from '../ProfilePage/ProfilePage';
 
 class App extends Component {
   state = {
@@ -68,6 +69,12 @@ class App extends Component {
           <Route exact path="/mygames" render={() => (
             userService.getUser() ?
               <MyGamesPage user={this.state.user}/>
+                :
+              <Redirect to="/login" />
+          )} />
+          <Route exact path="/profile" render={() => (
+            userService.getUser() ?
+              <ProfilePage user={this.state.user}/>
                 :
               <Redirect to="/login" />
           )} />

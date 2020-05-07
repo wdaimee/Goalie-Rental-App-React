@@ -22,7 +22,7 @@ export default function NavbarComponent(props) {
                 {nav_goalie2}
                 <Nav.Link href="/requests">My Requests</Nav.Link>
                 <Nav.Link href="/create">Make Request</Nav.Link>
-                <Nav.Link href="">Profile</Nav.Link>
+                <Nav.Link href="/profile">Profile</Nav.Link>
                 <Nav.Link href="/" onClick={props.handleLogout}>Log Out</Nav.Link>
             </Nav>
         </Navbar.Collapse>
