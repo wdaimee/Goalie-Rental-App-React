@@ -13,10 +13,16 @@ import FindGamesPage from '../FindGamesPage/FindGamesPage';
 import EditGamePage from '../EditGamePage/EditGamePage';
 import MyGamesPage from '../MyGamesPage/MyGamesPage';
 import ProfilePage from '../ProfilePage/ProfilePage';
+import EditProfilePage from '../EditProfilePage/EditProfilePage';
 
 class App extends Component {
   state = {
-    user: userService.getUser()
+    user: ''
+  }
+
+  async componentDidMount() {
+    let user = await userService.getUser();
+    this.handleUserStateChange(user);
   }
 
   handleLogout = () => {
@@ -26,6 +32,10 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
+  }
+
+  handleUserStateChange = (user) => {
+    this.setState({ user })
   }
 
   render() {
@@ -74,7 +84,16 @@ class App extends Component {
           )} />
           <Route exact path="/profile" render={() => (
             userService.getUser() ?
-              <ProfilePage user={this.state.user}/>
+              <ProfilePage user={this.state.user} />
+                :
+              <Redirect to="/login" />
+          )} />
+          <Route exact path="/profile/edit" render={({ location, history }) => (
+            userService.getUser() ?
+              <EditProfilePage location={location} 
+                               history={history}
+                               user={this.state.user}
+                               handleUserStateChange={this.handleUserStateChange}/>
                 :
               <Redirect to="/login" />
           )} />

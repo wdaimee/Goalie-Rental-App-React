@@ -53,7 +53,6 @@ class SignUpForm extends Component {
 
     //handle change for multiselect box
     handleChangeMulti = (value) => {
-        this.setState({sport: value})
         value.map(val => {
             this.setState({ sport: [...this.state.sport, val.value]})
         })

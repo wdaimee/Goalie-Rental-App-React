@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ProfileHeaderComponent from '../../components/ProfileHeaderComponent/ProfileHeaderComponent';
 import ProfileCardComponent from '../../components/ProfileCardComponent/ProfileCardComponent';
+
 
 export default function ProfilePage(props) {
     return(
@@ -10,3 +11,4 @@ export default function ProfilePage(props) {
         </>    
     )
 }
+

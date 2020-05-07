@@ -49,15 +49,15 @@ async function create(req, res) {
 
 //update a user
 function update(req, res) {
-    User.findById(req.params.id, function(err, user) {
+    User.findById(req.user._id, function(err, user) {
         if (err) {
             console.log("error: " + err);
             res.sendStatus(500);
         }
-        if (req.user.id != user._id) {
+        if (req.user._id != user._id) {
             return res.json({response: 'You do not have access to edit this user'})
         }
-        User.findByIdAndUpdate(user, req.body, {new: true}, (err, user) => {
+        User.findByIdAndUpdate(user, req.body.user, {new: true}, (err, user) => {
             if (err) {
                 console.log("error: " + err);
                 res.sendStatus(500);

@@ -35,9 +35,21 @@ function logout() {
     tokenService.removeToken();
 }
 
+function editProfile(user) {
+    return fetch(BASE_URL + `${user._id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+         },
+         body: JSON.stringify({'user': user})
+    }).then(({ token }) => tokenService.setToken(token));
+}
+
 export default {
     signup,
     getUser,
     login,
-    logout
+    logout,
+    editProfile
 }

@@ -2,6 +2,12 @@ const express = require('express');
 const router = express.Router();
 const userCtrl = require('../../controllers/api/users');
 
+
+function checkAuth(req, res, next) {
+    if (req.user) return next();
+    return res.status(401).json({msg: 'Not Authorized'});
+}
+
 //get all users
 router.get('/', userCtrl.index);
 //create a user
@@ -13,7 +19,7 @@ router.post('/login', userCtrl.login);
 router.use(require('../../config/auth'));
 
 //update a user
-router.put('/:id', userCtrl.update);
+router.put('/:id', checkAuth, userCtrl.update);
 //show a specific user
 router.get('/:id', userCtrl.show);
 //delete a user

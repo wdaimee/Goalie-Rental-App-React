@@ -20,3 +20,15 @@
 .card>hr {
     border: 1px solid white;
 }
+
+.profile-ed-contain{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+a.profile-ed-btn {
+    font-size: 30px;
+    margin-bottom: 30px;
+
+}

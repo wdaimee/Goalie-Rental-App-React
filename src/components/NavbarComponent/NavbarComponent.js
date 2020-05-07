@@ -14,7 +14,7 @@ export default function NavbarComponent(props) {
 
     let nav = props.user ?
     <Navbar collapseOnSelect expand="lg" variant="dark" style={{backgroundColor: "black", color: "white", fontSize: "1.5rem"}}>
-        <Navbar.Brand style={{fontSize: "1.5rem"}}href="/">gÜber - The Goalie Rental Company</Navbar.Brand>
+        <Navbar.Brand style={{fontSize: "1.5rem"}} href="/">gÜber - The Goalie Rental Company</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
