@@ -79,7 +79,7 @@ class CreateRequestFormComponent extends Component {
         }, {})
         try {
             await gameService.create(body); 
-            this.props.history.push('/');
+            this.props.history.push('/requests');
         } catch (err) {
             this.props.updateMessage(err.message);
         }
