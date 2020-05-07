@@ -10,7 +10,6 @@ const gameSchema = new Schema({
     },
     skill_level: {
         type: Object,
-        // enum: ['A', 'B', 'C', 'D', 'Beginner'],
         required: true
     },
     city: {

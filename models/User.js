@@ -29,7 +29,6 @@ const userSchema = new Schema({
     },
     skill_level: {
         type: Object,
-        // enum: [null, "A", "B", "C", "D", "Beginner"]
     },
     admin: {
         type: Boolean,
