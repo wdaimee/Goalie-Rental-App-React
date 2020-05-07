@@ -34,7 +34,7 @@ export default function TableEntryOpenComponent(props) {
                                     <td>{item.requestor.name}</td>
                                     <td>{item.requestor.email}</td>
                                     <td>{item.sport.toUpperCase()}</td>
-                                    <td>{item.skill_level}</td>
+                                    <td>{item.skill_level.str}</td>
                                     <td>{dateFormat(item.request_date, "UTC:dddd, mmmm dS, yyyy")}</td>
                                     <td>{item.request_time}</td>
                                     <td>{item.team_name}</td>

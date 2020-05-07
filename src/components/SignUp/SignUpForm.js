@@ -16,11 +16,11 @@ const sportList = [
 ]
 
 const skillLevelList = [
-    {value: 'A', label: 'A'},
-    {value: 'B', label: 'B'},
-    {value: 'C', label: 'C'},
-    {value: 'D', label: 'D'},
-    {value: 'Beginner', label: 'Beginner'}
+    {value: {str: 'A', value: 5}, label: 'A'},
+    {value: {str: 'B', value: 4}, label: 'B'},
+    {value: {str: 'C', value: 3}, label: 'C'},
+    {value: {str: 'D', value: 2}, label: 'D'},
+    {value: {str: 'Beginner', value: 1}, label: 'Beginner'}
 ]
 
 class SignUpForm extends Component {

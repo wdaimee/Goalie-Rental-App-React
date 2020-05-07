@@ -80,7 +80,7 @@ function goalie(req, res) {
 //function to view all open games available - works
 function all_open(req, res) {
     console.log(req.user)
-    Game.find({status: 'open', request_date: {$gt: new Date()}})
+    Game.find({status: 'open', request_date: {$gt: new Date()}, sport: {$in: req.user.sport}, "skill_level.value": {$lte: req.user.skill_level.value}})
     .populate('arena')
     .populate('goalie')
     .populate('requestor')
@@ -108,7 +108,7 @@ function add_goalie(req, res) {
             // return res.json({response: 'You don\'t play this sport'});
             return res.status(400).send(new Error('You don\'t play this sport'))
         }
-        if (req.body.user.skill_level !== game.skill_level) {
+        if (req.body.user.skill_level.value < game.skill_level.value) {
             // return res.json({response: 'You are not at the same skill level that this game requires'});
             return res.status(400).send(new Error('You are not at the same skill level that this game requires'))
         }

@@ -12,7 +12,7 @@ export default function ProfileCardComponent(props) {
     if (props.user.goalie) {
         sport_info = <>
                         <p className="card-text">Sports Played: {capFirstLetter(props.user.sport.join(", "))}</p>
-                        <p className="card-text">Skill Level: {props.user.skill_level}</p>
+                        <p className="card-text">Skill Level: {Object.keys(props.user.skill_level)[0]}</p>
                      </>   
     }
 

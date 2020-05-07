@@ -55,7 +55,11 @@ export function joinGame(gameId, user) {
 //function delete a game
 export function deleteGame(gameId) {
     return fetch(BASE_URL + gameId, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+         },
     }).then(res => res.json());
 }
 
