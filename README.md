@@ -26,6 +26,11 @@
         - Review mistakes that I made in the past and how to overcome them.
         - Keep the docs page intact without any major reprogramming.
 
+## Planning:
+- View user stories on Trello:
+    - [User Stories](https://trello.com/b/Vd4Q7E9f/guber-react-frontend)
+- View the Entity Relationship Diagram and how databases are related:
+    - [ERD Diagram](https://www.lucidchart.com/invitations/accept/87253d4d-b8e8-423d-83ea-5e0d271b5c90) 
 ## List of Technologies Used for Fullstack Project:
 - Backend/API:
     - Node.js
