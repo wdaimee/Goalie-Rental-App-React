@@ -1,7 +1,6 @@
 const Game = require('../../models/Game');
 const Arena = require('../../models/Arena');
 
-
 module.exports = {
     create,
     requestor,
@@ -80,6 +79,7 @@ function goalie(req, res) {
 
 //function to view all open games available - works
 function all_open(req, res) {
+    console.log(req.user)
     Game.find({status: 'open', request_date: {$gt: new Date()}})
     .populate('arena')
     .populate('goalie')
@@ -105,10 +105,12 @@ function add_goalie(req, res) {
             res.sendStatus(500);
         }
         if (req.body.user.sport.includes(game.sport) === false) {
-            return res.json({response: 'You don\'t play this sport'});
+            // return res.json({response: 'You don\'t play this sport'});
+            return res.status(400).send(new Error('You don\'t play this sport'))
         }
         if (req.body.user.skill_level !== game.skill_level) {
-            return res.json({response: 'You are not at the same skill level that this game requires'});
+            // return res.json({response: 'You are not at the same skill level that this game requires'});
+            return res.status(400).send(new Error('You are not at the same skill level that this game requires'))
         }
         game.goalie = req.body.user;
         game.status = 'pending';

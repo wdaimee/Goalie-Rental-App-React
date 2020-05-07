@@ -46,7 +46,10 @@ export function joinGame(gameId, user) {
                     'Authorization': 'Bearer ' + tokenService.getToken()
                  },
         body: JSON.stringify({'user': user, 'game': gameId})
-    }).then(res => res.json());
+    }).then(res => {
+        if (res.ok) return res.json();
+        throw new Error('Can\'t Join: Check Your Skill Level or List of Sports')
+    })
 }
 
 //function delete a game

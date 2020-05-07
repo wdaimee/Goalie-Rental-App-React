@@ -25,11 +25,15 @@ class FindGamesPage extends Component {
     }
 
     handleJoinClick = async (gameId, user) => {
-        await gameService.joinGame(gameId, user).then( _ => 
-            this.setState({request_list: []}, () => {
-                this.renderOpenList().catch(e => {});
-            })
-         )
+        try {
+            await gameService.joinGame(gameId, user).then( _ => 
+                this.setState({request_list: []}, () => {
+                    this.renderOpenList().catch(e => {});
+                })
+            )
+        } catch (err) {
+            alert(err)
+        }
     }
 
     render() {
