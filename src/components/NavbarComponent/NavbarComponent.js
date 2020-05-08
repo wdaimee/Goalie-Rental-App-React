@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import './NavbarComponent.css';
 
 export default function NavbarComponent(props) {
    
@@ -16,7 +15,7 @@ export default function NavbarComponent(props) {
 
     let nav = props.user ?
     <Navbar collapseOnSelect expand="lg" variant="dark" style={{backgroundColor: "black", color: "white", fontSize: "1.5rem"}}>
-        <Navbar.Brand style={{fontSize: "1.5rem"}} as={Link} to="/">gÜber - The Goalie Rental Company</Navbar.Brand>
+        <Navbar.Brand style={{fontSize: "2.0rem"}} as={Link} to="/">gÜber</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
@@ -31,7 +30,7 @@ export default function NavbarComponent(props) {
     </Navbar>
     :
     <Navbar collapseOnSelect expand="lg" variant="dark" style={{backgroundColor: "black", color: "white", fontSize: "1.5rem"}}>
-           <Navbar.Brand style={{fontSize: "1.5rem"}} href="/">gÜber - The Goalie Rental Company</Navbar.Brand>
+           <Navbar.Brand style={{fontSize: "2.0rem"}} href="/">gÜber</Navbar.Brand>
            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
            <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="ml-auto">

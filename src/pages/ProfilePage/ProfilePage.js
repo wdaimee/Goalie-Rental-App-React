@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ProfileHeaderComponent from '../../components/ProfileHeaderComponent/ProfileHeaderComponent';
 import ProfileCardComponent from '../../components/ProfileCardComponent/ProfileCardComponent';
 

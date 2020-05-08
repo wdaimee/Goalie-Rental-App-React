@@ -52,7 +52,7 @@ class EditProfilePage extends Component {
 
     render() {
         return(
-            <div className="edit-page" style={{height: "90vh"}}>
+            <div className="edit-page" style={{margin:"100px"}}>
                 <EditProfileForm location={this.props.location}
                                  history={this.props.history}
                                  invalidForm={this.state.invalidForm} 

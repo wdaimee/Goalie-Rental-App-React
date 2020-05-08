@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
 
@@ -55,7 +55,7 @@ export default function EditProfileForm(props) {
             } 
 
         return (
-            <div className="signup-container">
+            <div className="container signup-container">
                 <div className="signup-caption">
                     <header className="header-footer signup-header">Edit Your Profile</header>
                     <h5 className="display-4 text-center" style={{paddingTop: "5px", fontSize: "20px"}}>You Will Need to Log In Again If You're Making Any Changes</h5>
@@ -88,8 +88,8 @@ export default function EditProfileForm(props) {
                     {extraSelectList}
                     <div className="form-group">
                         <div className="col-sm-12 text-center">
-                        <button className="btn btn-success" default={isFormInvalid()}>Save Edit</button>&nbsp;&nbsp;
-                            <Link className="btn btn-danger" to='/profile'>Cancel</Link>
+                            <button className="btn btn-success" default={isFormInvalid()}>Save Edit</button>&nbsp;&nbsp;
+                                <Link className="btn btn-danger" to='/profile'>Cancel</Link>
                         </div>
                     </div>
                 </form>
