@@ -30,7 +30,7 @@ export default function NavbarComponent(props) {
     </Navbar>
     :
     <Navbar collapseOnSelect expand="lg" variant="dark" style={{backgroundColor: "black", color: "white", fontSize: "1.5rem"}}>
-           <Navbar.Brand style={{fontSize: "2.0rem"}} href="/">gÜber</Navbar.Brand>
+           <Navbar.Brand style={{fontSize: "2.0rem"}} as={Link} to="/">gÜber</Navbar.Brand>
            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
            <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="ml-auto">
