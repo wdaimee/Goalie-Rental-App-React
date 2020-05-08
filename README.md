@@ -1,5 +1,7 @@
  # gÜber - The Goalie Rental App Fullstack App
 
+ ![LandingPage](https://i.imgur.com/WSirEb4.png)
+
  ## About:
 
  gÜber Goalie Rental App is a Fullstack MERN application which allows users to make requests to fill a need for a goalie in either a Hockey, Soccer, or Lacrosse game. Users can either make a request for a goalie or if a user is signed up as a goalie, fill one of the open requests. Authorization was built using JSON Web Token (JWT) authorization. Therefore, users can signup and login. Ajax requests are made to the backend MongoDB database to store data such as created requests for goalies, user data, and history of game requests.
@@ -31,6 +33,9 @@
     - [User Stories](https://trello.com/b/Vd4Q7E9f/guber-react-frontend)
 - View the Entity Relationship Diagram and how databases are related:
     - [ERD Diagram](https://www.lucidchart.com/invitations/accept/87253d4d-b8e8-423d-83ea-5e0d271b5c90) 
+- View wire diagrams for various pages:
+    - [Wire Diagrams](https://trello.com/invite/b/Sb4U92TY/828f220a4f535167b776ebbb9540abcc/wireframes-for-guber)
+
 ## List of Technologies Used for Fullstack Project:
 - Backend/API:
     - Node.js
