@@ -19,7 +19,6 @@ export default function AboutComponent() {
                     you don't have a goalie.
                     </p>
                 </div>
-                <hr className="hr-about"/>
                 <div className="col-12">
                    <p style={{fontSize: "30px"}}>How It Works</p>
                 </div>
@@ -31,10 +30,7 @@ export default function AboutComponent() {
                         of accepting or declining the goalie. If you decline, a new goalie can request to join.
                     </p>
                 </div>
-                <hr className="hr-about"/>
            </div>
        </div> 
     )
-
-
 }

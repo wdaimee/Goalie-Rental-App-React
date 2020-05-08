@@ -102,7 +102,7 @@ class SignUpForm extends Component {
             </>
             } 
         return (
-            <div className="signup-container">
+            <div className="container signup-container">
                 <div className="signup-caption">
                     <header className="header-footer signup-header">Sign Up to Get Started!</header>
                     <p>Sign up to find goalies to rent.</p>
@@ -155,10 +155,10 @@ class SignUpForm extends Component {
                         </div>
                     </div>
                 </form>
-                <div className="link-login">
-                    <p>Already have an account? Log in below.</p>
-                    <Link className="btn btn-secondary" to='/login'>Log In</Link>
-                </div>
+                    <div className="col-12 link-login">
+                        <p>Already have an account? Log in below.</p>
+                        <Link className="btn btn-secondary" to='/login'>Log In</Link>
+                    </div>   
             </div>
         );
     }

@@ -1,6 +1,5 @@
 .about-sec {
     padding-top: 3em;
-    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,18 +25,13 @@
 
 /*---Media Queries---*/
 @media (max-width: 992px) {
-
+   
 }
 
 @media (max-width: 768px) {
-
+    
 }
 
 @media (max-width: 576px) {
-    .lead.para {
-        font-size: 20px;
-    }
-    .about-sec {
-        height: 160vh;
-    }
+   
 }
