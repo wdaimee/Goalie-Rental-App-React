@@ -11,7 +11,7 @@ export default function AboutComponent() {
                 </div>
                 <hr className="hr-about"/>
                 <div className="col-12">
-                    <p className="lead" style={{fontSize: "30px"}}>gÜber is a goalie rental website.
+                    <p className="lead para">gÜber is a goalie rental website.
                     You can signup to rent goalies for a game
                     or you can signup to become a rental goalie.
                     We know finding a goalie can be rough, that's why we created this app. 
@@ -25,7 +25,7 @@ export default function AboutComponent() {
                 </div>
                 <hr className="hr-about" />
                 <div className="col-12">
-                    <p className="lead" style={{fontSize: "30px"}}>
+                    <p className="lead para">
                         You can signup and make a game request to rent a goalie, you choose sports from: Hockey, Soccer, and Lacroose.
                         One of our goalies can choose to fill your game by requesting to fill the goalie in your game. You then have the option 
                         of accepting or declining the goalie. If you decline, a new goalie can request to join.
