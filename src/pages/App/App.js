@@ -101,6 +101,12 @@ class App extends Component {
                 :
               <Redirect to="/login" />
           )} />
+          <Route path="/*" render={() => (
+            <div className="error">
+              <h2>404</h2>
+              <h2>Nothing to See Here</h2>
+            </div>  
+          )} />
         </Switch>
         <FooterComponent />
       </>
