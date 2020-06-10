@@ -23,7 +23,7 @@
 
         [https://guber-rental.herokuapp.com/](https://guber-rental.herokuapp.com/)
 
-    - Originally, the React Frontend was going to be added to the original backend above. After reviewing the code and the requirements to implement JWT Authorization, I decided that copying over the backend to a new Fullstack project would be the most logical choice for the following reasons:
+    - Originally, the React Frontend was going to be added to the original backend above. After reviewing the code and the requirements to implement JWT Authorization, I decided that copying over the backend to a new Fullstack project and making changes to the backend code within this project would be the most logical choice for the following reasons:
         - View how my progress has changed from the two projects.
         - Review mistakes that I made in the past and how to overcome them.
         - Keep the docs page intact without any major reprogramming.
